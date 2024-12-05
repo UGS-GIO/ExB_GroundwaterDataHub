@@ -1,0 +1,44 @@
+{
+  "1712155160033": {
+    "originalName": "1677102613019.png",
+    "fileName": "1712155160033.png",
+    "size": 3304,
+    "url": "${appResourceUrl}/images/widget_3/1712155160033.png",
+    "created": 1712155160033,
+    "resourcesPrefix": "images/widget_3",
+    "referedIds": [],
+    "originId": "1712155160033",
+    "fileFormat": "image/png",
+    "isUseCompress": false,
+    "originalWidth": 58,
+    "originalHeight": 65
+  },
+  "1716214691303": {
+    "originalName": "GSL-Logo.png",
+    "fileName": "1716214691303.png",
+    "size": 12205,
+    "url": "${appResourceUrl}/images/widget_619/1716214691303.png",
+    "created": 1716214691303,
+    "resourcesPrefix": "images/widget_619",
+    "referedIds": [],
+    "originId": "1716214691303",
+    "fileFormat": "image/png",
+    "isUseCompress": false,
+    "originalWidth": 428,
+    "originalHeight": 210
+  },
+  "1716214884425": {
+    "originalName": "UGS-logo.png",
+    "fileName": "1716214884425.png",
+    "size": 7404,
+    "url": "${appResourceUrl}/images/widget_620/1716214884425.png",
+    "created": 1716214884425,
+    "resourcesPrefix": "images/widget_620",
+    "referedIds": [],
+    "originId": "1716214884425",
+    "fileFormat": "image/png",
+    "isUseCompress": false,
+    "originalWidth": 224,
+    "originalHeight": 241
+  }
+}
