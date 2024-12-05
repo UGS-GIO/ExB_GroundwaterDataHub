@@ -1,0 +1,53 @@
+{
+  "1715876171796.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1715876171796.png",
+    "properties": {
+      "filename": "1715876171796.png",
+      "originalName": "hamburger-icon.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1715876171796.png",
+      "inlineSvg": false
+    }
+  },
+  "1716928106089.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1716928106089.png",
+    "properties": {
+      "filename": "1716928106089.png",
+      "originalName": "icon-newwindow.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1716928106089.png",
+      "isUploaded": true,
+      "inlineSvg": false
+    }
+  },
+  "1722272733923.jpg": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1722272733923.jpg",
+    "properties": {
+      "filename": "1722272733923.jpg",
+      "originalName": "unnamed.jpg",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1722272733923.jpg",
+      "color": "var(--dark-800)",
+      "size": 16,
+      "inlineSvg": false,
+      "isUploaded": true
+    }
+  },
+  "1722272785552.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1722272785552.png",
+    "properties": {
+      "filename": "1722272785552.png",
+      "originalName": "unnamed.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1722272785552.png",
+      "isUploaded": true,
+      "inlineSvg": false
+    }
+  },
+  "1722450589552.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1722450589552.png",
+    "properties": {
+      "filename": "1722450589552.png",
+      "originalName": "favicon.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1722450589552.png",
+      "isUploaded": true,
+      "inlineSvg": false
+    }
+  }
+}
