@@ -41,7 +41,7 @@ jobs:
           NODE_ENV: production
       - name: Unzip app zip
         run: |
-          unzip -q app.zip -d app
+          unzip -o -q app.zip -d app
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
