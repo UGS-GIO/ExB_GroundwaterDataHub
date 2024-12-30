@@ -1,0 +1,68 @@
+/*widget controller buttons styling*/
+.widget-controller .jimu-btn {
+    border-radius: 0px !important;
+}
+
+.widget-controller .jimu-btn.active {
+    background-color: #171717;
+}
+
+.widget-controller .jimu-icon {
+    color: #ffffff;
+}
+
+.widget-controller .jimu-btn.active .jimu-icon {
+    color: #c3512f !important;
+}
+
+.widget-controller .jimu-btn:hover .jimu-icon {
+    color: #c3512f !important;
+}
+
+/*map controls buttons styling*/
+.exbmap-ui-tool.exbmap-ui-tool-icon-selected {
+    color: #c3512f !important;
+    background-color: #171717 !important;
+}
+
+
+// #jimu-link-app-17 > span > svg {
+//     color:aqua
+// }
+
+// .jimu-btn.jimu-link.widget-button-link span > svg {
+//     color:aqua
+// }
+
+
+// .jimu-btn.jimu-link.widget-button-link span > svg {
+//     color:rgb(255, 238, 0)
+// }
+
+
+
+
+
+
+// /* Map widget button styling */
+// .map-widget .jimu-btn {
+//     color: #ffffff;
+//     border-radius: 0px;
+//     background-color: transparent; /* Adjust background if necessary */
+// }
+
+// .map-widget .jimu-btn:hover {
+//     background-color: transparent; /* Optional: Change if needed */
+// }
+
+// .map-widget .jimu-btn:hover .jimu-icon {
+//     color: #c3512f !important; /* Hover state for icon */
+// }
+
+// .map-widget .jimu-btn.active {
+//     background-color: #171717;
+// }
+
+// .map-widget .jimu-btn.active .jimu-icon {
+//     color: #c3512f !important; /* Active/selected state for icon */
+// }
