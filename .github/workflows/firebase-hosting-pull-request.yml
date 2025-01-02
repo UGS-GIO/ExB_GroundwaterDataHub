@@ -43,6 +43,9 @@ jobs:
         working-directory: exb/ArcGISExperienceBuilder
         env:
           NODE_ENV: production
+      - name: Check if app.zip exists
+        run: ls -la app.zip
+        working-directory: exb/ArcGISExperienceBuilder
       - name: Unzip app zip
         run: |
           unzip -o -q app.zip -d app
