@@ -36,10 +36,24 @@ jobs:
       - name: Build widgets
         run: npm run build:prod
         working-directory: exb/ArcGISExperienceBuilder/client
-      - name: Run download script
+      - name: Run download script with debug
         run: |
-          node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
-          ls -la  # This will show where the file is created
+          pwd
+          ls -la
+          echo "Running download script..."
+          node -e "
+            const appDownload = require('./server/src/middlewares/dev/apps/app-download.js');
+            try {
+              console.log('Starting zip creation...');
+              const result = appDownload.zipApp('0', 'app.zip');
+              console.log('Zip creation result:', result);
+            } catch (error) {
+              console.error('Error creating zip:', error);
+              process.exit(1);
+            }
+          "
+          echo "After script execution:"
+          ls -la
         working-directory: exb/ArcGISExperienceBuilder
         env:
           NODE_ENV: production
