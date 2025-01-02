@@ -11,87 +11,42 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-
       - name: Download Experience Builder
         run: curl -o exb.zip "$(curl -s 'https://downloads.arcgis.com/dms/rest/download/secured/arcgis-experience-builder-1.15.zip?f=json&folder=software%2FExperienceBuilder%2F1.15' | python3 -c "import sys, json; print(json.load(sys.stdin)['url'])")"
-
       - name: Unzip Experience Builder
         run: unzip -q exb.zip -d exb
-
-      - name: Copy Custom Themes and verify
-        run: |
-          cp -r themes/* exb/ArcGISExperienceBuilder/client/your-extensions/themes
-          echo "Verifying themes were copied:"
-          ls -la exb/ArcGISExperienceBuilder/client/your-extensions/themes
-
+      # - name: Copy Custom Widgets
+      # run: cp -r widgets/* exb/ArcGISExperienceBuilder/client/your-extensions/widgets
+      - name: Copy Custom Themes
+        run: cp -r themes/* exb/ArcGISExperienceBuilder/client/your-extensions/themes
       - name: Create App directory
-        run: mkdir -p exb/ArcGISExperienceBuilder/server/public/apps
-
-      - name: Copy apps and verify
-        run: |
-          cp -r apps/* exb/ArcGISExperienceBuilder/server/public/apps
-          echo "Verifying apps were copied:"
-          ls -la exb/ArcGISExperienceBuilder/server/public/apps
-
-      - name: NPM install client folder
-        run: |
-          npm ci
-          echo "Verifying node_modules:"
-          ls -la node_modules
-        working-directory: exb/ArcGISExperienceBuilder/client
-
-      - name: NPM install in server folder
-        run: |
-          npm ci
-          echo "Verifying node_modules:"
-          ls -la node_modules
+        run: mkdir public && cd public && mkdir apps && cd apps
         working-directory: exb/ArcGISExperienceBuilder/server
-
+      - name: Copy apps
+        run: cp -r apps/* exb/ArcGISExperienceBuilder/server/public/apps
+      - name: NPM install client folder
+        run: npm ci
+        working-directory: exb/ArcGISExperienceBuilder/client
+      - name: NPM install in server folder
+        run: npm ci
+        working-directory: exb/ArcGISExperienceBuilder/server
       - name: Build widgets - dev
-        run: |
-          npm run build:dev
-          echo "Verifying dev build output:"
-          ls -la dist
+        run: npm run build:dev
         working-directory: exb/ArcGISExperienceBuilder/client
-
       - name: Build widgets
-        run: |
-          npm run build:prod
-          echo "Verifying prod build output:"
-          ls -la dist
-          echo "Verifying themes directory:"
-          ls -la dist/themes || true
+        run: npm run build:prod
         working-directory: exb/ArcGISExperienceBuilder/client
-
-      - name: Verify theme build structure
-        run: |
-          echo "Theme directory structure:"
-          find client/dist/themes -type d
-          echo "Theme files:"
-          find client/dist/themes -type f
-        working-directory: exb/ArcGISExperienceBuilder
-
       - name: Run download script
         run: |
-          echo "Current directory contents:"
-          ls -la
           node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
-          echo "After zip creation:"
-          ls -la app.zip || true
+          ls -la  # This will show where the file is created
         working-directory: exb/ArcGISExperienceBuilder
         env:
           NODE_ENV: production
-
       - name: Unzip app zip
         run: |
-          echo "Current directory before unzip:"
-          ls -la
-          unzip -o -q app.zip -d app || echo "Unzip failed - checking if file exists"
-          echo "Directory after unzip attempt:"
-          ls -la
-          if [ -d "app" ]; then
-            chmod -R 777 app
-          fi
+          unzip -o -q app.zip -d app
+          chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
       - name: Deploy to Firebase Preview Channel
