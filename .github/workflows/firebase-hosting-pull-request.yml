@@ -36,20 +36,39 @@ jobs:
       - name: Build widgets
         run: npm run build:prod
         working-directory: exb/ArcGISExperienceBuilder/client
+
+      - name: Build themes
+        run: npm run build:dev
+        working-directory: exb/ArcGISExperienceBuilder/client
+
+      - name: Verify theme directory
+        run: |
+          echo "Checking theme directory..."
+          ls -la client/dist/themes/
+        working-directory: exb/ArcGISExperienceBuilder
+
       - name: List apps directory
         run: ls -la exb/ArcGISExperienceBuilder/server/public/apps
       - name: Run download script with debug
         run: |
           echo "Current directory:"
           pwd
+          echo "Theme directory contents:"
+          ls -la client/dist/themes/
           echo "Apps directory contents:"
           ls -la server/public/apps/
           echo "Running download script..."
           node -e "
             const appDownload = require('./server/src/middlewares/dev/apps/app-download.js');
+            const fs = require('fs');
+            
             try {
-              console.log('Available apps:', require('fs').readdirSync('./server/public/apps'));
-              const appId = require('fs').readdirSync('./server/public/apps')[0];
+              if (!fs.existsSync('./client/dist/themes/ugdh_theme')) {
+                console.error('Theme directory missing');
+                process.exit(1);
+              }
+              
+              const appId = fs.readdirSync('./server/public/apps')[0];
               console.log('Using app ID:', appId);
               const result = appDownload.zipApp(appId, 'app.zip');
               console.log('Zip creation result:', result);
@@ -58,8 +77,6 @@ jobs:
               process.exit(1);
             }
           "
-          echo "After script execution:"
-          ls -la
         working-directory: exb/ArcGISExperienceBuilder
         env:
           NODE_ENV: production
