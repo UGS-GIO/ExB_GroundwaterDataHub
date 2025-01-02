@@ -41,6 +41,17 @@ jobs:
         run: npm run build:dev
         working-directory: exb/ArcGISExperienceBuilder/client
 
+      - name: Copy and verify custom theme
+        run: |
+          # Create theme directory if it doesn't exist
+          mkdir -p client/dist/themes/ugdh_theme
+          # Copy custom theme files
+          cp -r client/your-extensions/themes/ugdh_theme/* client/dist/themes/ugdh_theme/
+          # List contents to verify
+          echo "Theme directory after copy:"
+          ls -la client/dist/themes/ugdh_theme/
+        working-directory: exb/ArcGISExperienceBuilder
+
       - name: Verify theme directory
         run: |
           echo "Checking theme directory..."
@@ -51,31 +62,22 @@ jobs:
         run: ls -la exb/ArcGISExperienceBuilder/server/public/apps
       - name: Run download script with debug
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Theme directory contents:"
-          ls -la client/dist/themes/
-          echo "Apps directory contents:"
-          ls -la server/public/apps/
-          echo "Running download script..."
+          THEME_DIR="client/dist/themes/ugdh_theme"
+          if [ ! -d "$THEME_DIR" ]; then
+            echo "Theme directory not found at: $THEME_DIR"
+            exit 1
+          fi
           node -e "
             const appDownload = require('./server/src/middlewares/dev/apps/app-download.js');
             const fs = require('fs');
-            
-            try {
-              if (!fs.existsSync('./client/dist/themes/ugdh_theme')) {
-                console.error('Theme directory missing');
+            const appId = fs.readdirSync('./server/public/apps')[0];
+            console.log('Using app ID:', appId);
+            appDownload.zipApp(appId, 'app.zip')
+              .then(() => console.log('Zip created successfully'))
+              .catch(error => {
+                console.error('Error creating zip:', error);
                 process.exit(1);
-              }
-              
-              const appId = fs.readdirSync('./server/public/apps')[0];
-              console.log('Using app ID:', appId);
-              const result = appDownload.zipApp(appId, 'app.zip');
-              console.log('Zip creation result:', result);
-            } catch (error) {
-              console.error('Error details:', error);
-              process.exit(1);
-            }
+              });
           "
         working-directory: exb/ArcGISExperienceBuilder
         env:
