@@ -36,19 +36,25 @@ jobs:
       - name: Build widgets
         run: npm run build:prod
         working-directory: exb/ArcGISExperienceBuilder/client
+      - name: List apps directory
+        run: ls -la exb/ArcGISExperienceBuilder/server/public/apps
       - name: Run download script with debug
         run: |
+          echo "Current directory:"
           pwd
-          ls -la
+          echo "Apps directory contents:"
+          ls -la server/public/apps/
           echo "Running download script..."
           node -e "
             const appDownload = require('./server/src/middlewares/dev/apps/app-download.js');
             try {
-              console.log('Starting zip creation...');
-              const result = appDownload.zipApp('0', 'app.zip');
+              console.log('Available apps:', require('fs').readdirSync('./server/public/apps'));
+              const appId = require('fs').readdirSync('./server/public/apps')[0];
+              console.log('Using app ID:', appId);
+              const result = appDownload.zipApp(appId, 'app.zip');
               console.log('Zip creation result:', result);
             } catch (error) {
-              console.error('Error creating zip:', error);
+              console.error('Error details:', error);
               process.exit(1);
             }
           "
