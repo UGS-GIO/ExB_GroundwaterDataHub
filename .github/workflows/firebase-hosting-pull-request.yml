@@ -36,55 +36,13 @@ jobs:
       - name: Build widgets
         run: npm run build:prod
         working-directory: exb/ArcGISExperienceBuilder/client
-
-      - name: Build themes
-        run: npm run build:dev
-        working-directory: exb/ArcGISExperienceBuilder/client
-
-      - name: Copy and verify custom theme
+      - name: Run download script
         run: |
-          # Create theme directory if it doesn't exist
-          mkdir -p client/dist/themes/ugdh_theme
-          # Copy custom theme files
-          cp -r client/your-extensions/themes/ugdh_theme/* client/dist/themes/ugdh_theme/
-          # List contents to verify
-          echo "Theme directory after copy:"
-          ls -la client/dist/themes/ugdh_theme/
-        working-directory: exb/ArcGISExperienceBuilder
-
-      - name: Verify theme directory
-        run: |
-          echo "Checking theme directory..."
-          ls -la client/dist/themes/
-        working-directory: exb/ArcGISExperienceBuilder
-
-      - name: List apps directory
-        run: ls -la exb/ArcGISExperienceBuilder/server/public/apps
-      - name: Run download script with debug
-        run: |
-          THEME_DIR="client/dist/themes/ugdh_theme"
-          if [ ! -d "$THEME_DIR" ]; then
-            echo "Theme directory not found at: $THEME_DIR"
-            exit 1
-          fi
-          node -e "
-            const appDownload = require('./server/src/middlewares/dev/apps/app-download.js');
-            const fs = require('fs');
-            const appId = fs.readdirSync('./server/public/apps')[0];
-            console.log('Using app ID:', appId);
-            appDownload.zipApp(appId, 'app.zip')
-              .then(() => console.log('Zip created successfully'))
-              .catch(error => {
-                console.error('Error creating zip:', error);
-                process.exit(1);
-              });
-          "
+          node -e "require('./server/src/middlewares/dev/apps/app-download.js').zipApp('0', 'app.zip')"
+          ls -la  # This will show where the file is created
         working-directory: exb/ArcGISExperienceBuilder
         env:
           NODE_ENV: production
-      - name: Check if app.zip exists
-        run: ls -la app.zip
-        working-directory: exb/ArcGISExperienceBuilder
       - name: Unzip app zip
         run: |
           unzip -o -q app.zip -d app
