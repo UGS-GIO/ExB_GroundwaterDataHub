@@ -1,13 +1,13 @@
 {
-  "created": 1722452682173,
+  "created": 1731449221041,
   "description": "",
-  "id": "0",
-  "modified": 1733414120496,
-  "owner": "mackenziecope",
+  "id": "3",
+  "modified": 1735580959994,
+  "owner": "rwillmore",
   "tags": [
     ""
   ],
-  "thumbnail": "thumbnail/thumbnail1722452689407.png",
+  "thumbnail": "thumbnail/thumbnail1731449221557.png",
   "title": "Utah Groundwater Data Hub",
   "type": "Web Experience",
   "snippet": "",
@@ -25,10 +25,10 @@
     "Web Site"
   ],
   "portalUrl": "https://utahdnr.maps.arcgis.com",
-  "username": "mackenziecope",
+  "username": "rwillmore",
   "f": "json",
   "token": "undefined",
-  "url": null,
   "name": "Utah Groundwater Data Hub",
-  "isLocalApp": true
+  "isLocalApp": true,
+  "url": null
 }
