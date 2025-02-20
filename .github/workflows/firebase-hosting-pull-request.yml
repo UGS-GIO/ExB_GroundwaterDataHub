@@ -49,10 +49,27 @@ jobs:
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
-      - name: Inject Google Analytics and Tag Manager
+      - name: Create index.html with analytics
         run: |
-          # Create the analytics script content
+          # Create a directory for Firebase hosting
+          mkdir -p firebase_public
+          
+          # Copy all files from the app directory
+          cp -r exb/ArcGISExperienceBuilder/app/* firebase_public/
+          
+          # Find the main index.html
+          INDEX_FILE=$(find firebase_public -name "index.html" | head -1)
+          echo "Found index.html at: $INDEX_FILE"
+          
+          if [ -z "$INDEX_FILE" ]; then
+            echo "❌ Could not find index.html file"
+            exit 1
+          fi
+          
+          # Create a temporary file with the head analytics script
           cat > /tmp/head_script.txt << EOL
+          <meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+          
           <!-- Google tag (gtag.js) -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
           <script>
@@ -71,66 +88,29 @@ jobs:
           <!-- End Google Tag Manager -->
           EOL
           
+          # Create a temporary file with the body analytics script
           cat > /tmp/body_script.txt << EOL
+          <body>
           <!-- Google Tag Manager (noscript) -->
           <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- End Google Tag Manager (noscript) -->
           EOL
           
-          # Find all HTML files
-          find exb/ArcGISExperienceBuilder/app -name "*.html" -print0 | while IFS= read -r -d '' htmlfile; do
-            echo "Processing file: $htmlfile"
-            
-            # Create a backup
-            cp "$htmlfile" "${htmlfile}.bak"
-            
-            # VERY SPECIFIC: Insert head scripts right after the </style> tag following the <head> tag
-            # First count how many lines to skip to find the first </style> after <head>
-            head_line=$(grep -n "<head>" "$htmlfile" | head -1 | cut -d: -f1)
-            first_style_end_after_head=$(tail -n +$head_line "$htmlfile" | grep -n "</style>" | head -1 | cut -d: -f1)
-            
-            if [ -n "$first_style_end_after_head" ]; then
-              # Calculate the actual line number
-              first_style_end_line=$((head_line + first_style_end_after_head - 1))
-              
-              # Use sed to insert after this specific </style> tag
-              sed -i "${first_style_end_line}r /tmp/head_script.txt" "$htmlfile"
-              echo "✅ Head scripts inserted after line $first_style_end_line"
-            else
-              # Fallback: insert after the first script tag in head
-              sed -i "/<head>/{n;r /tmp/head_script.txt
-              }" "$htmlfile"
-              echo "⚠️ Using fallback method for head scripts"
-            fi
-            
-            # VERY SPECIFIC: Insert body scripts after the first </div> in the body
-            body_line=$(grep -n "<body>" "$htmlfile" | head -1 | cut -d: -f1)
-            first_div_end_after_body=$(tail -n +$body_line "$htmlfile" | grep -n "</div>" | head -1 | cut -d: -f1)
-            
-            if [ -n "$first_div_end_after_body" ]; then
-              # Calculate the actual line number
-              first_div_end_line=$((body_line + first_div_end_after_body - 1))
-              
-              # Use sed to insert after this specific </div> tag
-              sed -i "${first_div_end_line}r /tmp/body_script.txt" "$htmlfile"
-              echo "✅ Body scripts inserted after line $first_div_end_line"
-            else
-              # Fallback: insert right after body tag
-              sed -i "/<body>/{n;r /tmp/body_script.txt
-              }" "$htmlfile"
-              echo "⚠️ Using fallback method for body scripts"
-            fi
-            
-            # Verify the changes
-            if grep -q "${GA_ID}" "$htmlfile" && grep -q "${GTM_ID}" "$htmlfile"; then
-              echo "✅ Analytics codes successfully injected"
-              rm "${htmlfile}.bak"
-            else
-              echo "❌ Failed to inject analytics, restoring backup"
-              mv "${htmlfile}.bak" "$htmlfile"
-            fi
-          done
+          # Use sed to replace specific strings instead of trying to insert at specific positions
+          # Replace the X-UA-Compatible meta tag with our analytics (already includes the meta tag)
+          sed -i 's|<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>|'"$(cat /tmp/head_script.txt)"'|g' "$INDEX_FILE"
+          
+          # Replace the opening body tag with our body tag + analytics
+          sed -i 's|<body>|'"$(cat /tmp/body_script.txt)"'|g' "$INDEX_FILE"
+          
+          # Verify the changes
+          if grep -q "${GA_ID}" "$INDEX_FILE" && grep -q "${GTM_ID}" "$INDEX_FILE"; then
+            echo "✅ Analytics codes successfully injected"
+          else
+            echo "❌ Failed to inject analytics"
+            exit 1
+          fi
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
           GA_ID: ${{ secrets.GA_ID }}
