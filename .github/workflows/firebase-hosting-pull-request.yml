@@ -51,18 +51,15 @@ jobs:
 
       - name: Inject Google Analytics and Tag Manager
         run: |
-          # Set environment variables from secrets
-          export GTM_ID=${{ secrets.GTM_ID }}
-          export GA_ID=${{ secrets.GA_ID }}
-          # Create temporary files with the exact content
-          cat > /tmp/head_scripts.txt << EOL
+          # Create the analytics script files with proper IDs
+          cat > /tmp/head_script.txt << EOL
           <!-- Google tag (gtag.js) -->
           <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
           <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
+          
             gtag('config', '${GA_ID}');
           </script>
           <!-- Google Tag Manager -->
@@ -73,35 +70,50 @@ jobs:
           })(window,document,'script','dataLayer','${GTM_ID}');</script>
           <!-- End Google Tag Manager -->
           EOL
-
-          cat > /tmp/body_scripts.txt << EOL
+          
+          cat > /tmp/body_script.txt << EOL
           <!-- Google Tag Manager (noscript) -->
           <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
           height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <!-- End Google Tag Manager (noscript) -->
           EOL
-
-          # Debug - Check if HTML files exist and their structure
-          echo "HTML files found:"
-          find exb/ArcGISExperienceBuilder/app -name "*.html" | wc -l
-          echo "Sample HTML structure (first 20 lines of first HTML file):"
-          find exb/ArcGISExperienceBuilder/app -name "*.html" | head -1 | xargs head -20
-
-          # Inject scripts using more reliable method
-          for htmlfile in $(find exb/ArcGISExperienceBuilder/app -name "*.html"); do
+          
+          # Process all HTML files (properly handling spaces in filenames)
+          find exb/ArcGISExperienceBuilder/app -name "*.html" -print0 | while IFS= read -r -d '' htmlfile; do
             echo "Processing file: $htmlfile"
             
-            # Insert after <head>
-            sed -i -e '/<head>/r /tmp/head_scripts.txt' $htmlfile
+            # Create a backup
+            cp "$htmlfile" "${htmlfile}.bak"
             
-            # Insert after <body>
-            sed -i -e '/<body>/r /tmp/body_scripts.txt' $htmlfile
+            # Use awk for precise insertion after <head> tag
+            awk '
+            BEGIN { head_found=0; body_found=0; }
+            /<head>/ && !head_found {
+              head_found=1;
+              print $0;
+              system("cat /tmp/head_script.txt");
+              next;
+            }
+            /<body>/ && !body_found {
+              body_found=1;
+              print $0;
+              system("cat /tmp/body_script.txt");
+              next;
+            }
+            { print $0; }
+            ' "$htmlfile" > "${htmlfile}.new"
             
-            # Verify injection
-            echo "Verifying head script injection:"
-            grep -A 3 "Google tag (gtag.js)" $htmlfile | head -1
-            echo "Verifying body script injection:"
-            grep -A 3 "Google Tag Manager (noscript)" $htmlfile | head -1
+            # Replace original with new file
+            mv "${htmlfile}.new" "$htmlfile"
+            
+            # Verify the changes worked
+            if grep -q "${GA_ID}" "$htmlfile" && grep -q "${GTM_ID}" "$htmlfile"; then
+              echo "✅ Analytics codes successfully injected"
+              rm "${htmlfile}.bak"
+            else
+              echo "❌ Failed to inject analytics, restoring backup"
+              mv "${htmlfile}.bak" "$htmlfile"
+            fi
           done
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
