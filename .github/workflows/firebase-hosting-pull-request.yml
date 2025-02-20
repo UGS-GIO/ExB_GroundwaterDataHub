@@ -51,31 +51,58 @@ jobs:
 
       - name: Inject Google Analytics and Tag Manager
         run: |
-         # Find all HTML files and inject the scripts
-         find exb/ArcGISExperienceBuilder/app -name "*.html" -exec sed -i '/<head>/a \
-         <!-- Google Tag Manager --> \
-         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start": \
-         new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0], \
-         j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src= \
-         "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f); \
-         })(window,document,"script","dataLayer","${GTM_ID}");</script> \
-         <!-- End Google Tag Manager --> \
-         <!-- Google Analytics --> \
-         <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script> \
-         <script> \
-           window.dataLayer = window.dataLayer || []; \
-           function gtag(){dataLayer.push(arguments);} \
-           gtag("js", new Date()); \
-           gtag("config", "${GA_ID}"); \
-         </script> \
-         <!-- End Google Analytics -->' {} \;
-         
-         # Inject GTM noscript body tag
-         find exb/ArcGISExperienceBuilder/app -name "*.html" -exec sed -i '/<body>/a \
-         <!-- Google Tag Manager (noscript) --> \
-         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" \
-         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> \
-         <!-- End Google Tag Manager (noscript) -->' {} \;
+          # Set environment variables from secrets
+          export GTM_ID=${{ secrets.GTM_ID }}
+          export GA_ID=${{ secrets.GA_ID }}
+          # Create temporary files with the exact content
+          cat > /tmp/head_scripts.txt << EOL
+          <!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${GA_ID}');
+          </script>
+          <!-- Google Tag Manager -->
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_ID}');</script>
+          <!-- End Google Tag Manager -->
+          EOL
+
+          cat > /tmp/body_scripts.txt << EOL
+          <!-- Google Tag Manager (noscript) -->
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <!-- End Google Tag Manager (noscript) -->
+          EOL
+
+          # Debug - Check if HTML files exist and their structure
+          echo "HTML files found:"
+          find exb/ArcGISExperienceBuilder/app -name "*.html" | wc -l
+          echo "Sample HTML structure (first 20 lines of first HTML file):"
+          find exb/ArcGISExperienceBuilder/app -name "*.html" | head -1 | xargs head -20
+
+          # Inject scripts using more reliable method
+          for htmlfile in $(find exb/ArcGISExperienceBuilder/app -name "*.html"); do
+            echo "Processing file: $htmlfile"
+            
+            # Insert after <head>
+            sed -i -e '/<head>/r /tmp/head_scripts.txt' $htmlfile
+            
+            # Insert after <body>
+            sed -i -e '/<body>/r /tmp/body_scripts.txt' $htmlfile
+            
+            # Verify injection
+            echo "Verifying head script injection:"
+            grep -A 3 "Google tag (gtag.js)" $htmlfile | head -1
+            echo "Verifying body script injection:"
+            grep -A 3 "Google Tag Manager (noscript)" $htmlfile | head -1
+          done
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
           GA_ID: ${{ secrets.GA_ID }}
