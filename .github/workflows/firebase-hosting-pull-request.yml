@@ -49,134 +49,63 @@ jobs:
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
-      - name: Create Firebase config
+      - name: Inject Google Analytics and Tag Manager into index.html
         run: |
-          cat > firebase.json << EOL
-          {
-            "hosting": {
-              "public": "exb/ArcGISExperienceBuilder/app",
-              "ignore": [
-                "firebase.json",
-                "**/.*",
-                "**/node_modules/**"
-              ]
-            }
-          }
-          EOL
-      
-      # Create a simple HTML file with GTM & GA that will be included via Firebase hosting headers
-      - name: Create analytics header script
-        run: |
-          mkdir -p public
-          cat > public/analytics.js << EOL
-          // Google Tag Manager
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${GTM_ID}');
+          # Verify the main index.html file exists
+          if [ ! -f "exb/ArcGISExperienceBuilder/app/index.html" ]; then
+            echo "❌ Could not find main index.html file"
+            # Let's check where it actually is
+            find exb/ArcGISExperienceBuilder/app -name "index.html" | head -5
+            exit 1
+          fi
           
-          // Google Analytics
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_ID}');
-          EOL
+          # Create a backup of the original file
+          cp exb/ArcGISExperienceBuilder/app/index.html exb/ArcGISExperienceBuilder/app/index.html.bak
           
-          # Create GTM iframe HTML
-          cat > public/gtm-body.html << EOL
-          <!-- Google Tag Manager (noscript) -->
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-          <!-- End Google Tag Manager (noscript) -->
-          EOL
+          # Add analytics scripts before the closing </head> tag
+          HEAD_SCRIPT='<!-- Google tag (gtag.js) -->\
+          <script async src="https://www.googletagmanager.com/gtag/js?id='${GA_ID}'"></script>\
+          <script>\
+            window.dataLayer = window.dataLayer || [];\
+            function gtag(){dataLayer.push(arguments);}\
+            gtag("js", new Date());\
+          \
+            gtag("config", "'${GA_ID}'");\
+          </script>\
+          <!-- Google Tag Manager -->\
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":\
+          new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],\
+          j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=\
+          "https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);\
+          })(window,document,"script","dataLayer","'${GTM_ID}'");</script>\
+          <!-- End Google Tag Manager -->'
+          
+          # Add GTM noscript after the opening <body> tag
+          BODY_SCRIPT='<!-- Google Tag Manager (noscript) -->\
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id='${GTM_ID}'"\
+          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\
+          <!-- End Google Tag Manager (noscript) -->'
+          
+          # Use awk for safer replacement
+          awk -v head_script="$HEAD_SCRIPT" -v body_script="$BODY_SCRIPT" '
+          /<head>/ { print; print head_script; next }
+          /<body>/ { print; print body_script; next }
+          { print }
+          ' exb/ArcGISExperienceBuilder/app/index.html.bak > exb/ArcGISExperienceBuilder/app/index.html
+          
+          # Verify the changes were made
+          if grep -q "${GA_ID}" exb/ArcGISExperienceBuilder/app/index.html && \
+             grep -q "${GTM_ID}" exb/ArcGISExperienceBuilder/app/index.html; then
+            echo "✅ Analytics successfully added to index.html"
+            rm exb/ArcGISExperienceBuilder/app/index.html.bak
+          else
+            echo "❌ Failed to add analytics, restoring backup"
+            mv exb/ArcGISExperienceBuilder/app/index.html.bak exb/ArcGISExperienceBuilder/app/index.html
+            exit 1
+          fi
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
           GA_ID: ${{ secrets.GA_ID }}
-      
-      # Use Firebase hosting magic: create a custom header that injects our scripts
-      - name: Create Firebase headers configuration
-        run: |
-          cat > firebase-hosting-config.json << EOL
-          {
-            "hosting": {
-              "headers": [
-                {
-                  "source": "**/*.html",
-                  "headers": [
-                    {
-                      "key": "Content-Security-Policy",
-                      "value": "script-src 'self' 'unsafe-inline' https://js.arcgis.com https://*.arcgisonline.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; object-src 'self'; connect-src 'self' https://*.arcgis.com https://*.arcgisonline.com https://www.google-analytics.com https://analytics.google.com https://maps.googleapis.com https://www.googletagmanager.com;"
-                    }
-                  ]
-                }
-              ],
-              "rewrites": [
-                {
-                  "source": "/analytics.js",
-                  "destination": "/analytics.js"
-                },
-                {
-                  "source": "/gtm-body.html",
-                  "destination": "/gtm-body.html"
-                }
-              ]
-            }
-          }
-          EOL
-      
-      # Create an index.js file that will inject our scripts
-      - name: Create index.js injector
-        run: |
-          mkdir -p exb/ArcGISExperienceBuilder/app/analytics
-          cat > exb/ArcGISExperienceBuilder/app/analytics/inject.js << EOL
-          // This file injects analytics scripts into the page
-          document.addEventListener('DOMContentLoaded', function() {
-            // Load Google Tag Manager JS
-            var gtmScript = document.createElement('script');
-            gtmScript.src = '/analytics.js';
-            document.head.appendChild(gtmScript);
-            
-            // Load Google Analytics script
-            var gaScript = document.createElement('script');
-            gaScript.async = true;
-            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
-            document.head.appendChild(gaScript);
-            
-            // Inject GTM noscript iframe
-            fetch('/gtm-body.html')
-              .then(response => response.text())
-              .then(html => {
-                var tempDiv = document.createElement('div');
-                tempDiv.innerHTML = html;
-                document.body.insertBefore(tempDiv.firstChild, document.body.firstChild);
-              });
-          });
-          EOL
-        env:
-          GA_ID: ${{ secrets.GA_ID }}
-      
-      # Find all HTML files and inject our script reference
-      - name: Inject script references
-        run: |
-          find exb/ArcGISExperienceBuilder/app -name "*.html" -print0 | while IFS= read -r -d '' htmlfile; do
-            echo "Adding analytics script to: $htmlfile"
-            
-            # Create a backup
-            cp "$htmlfile" "${htmlfile}.bak"
-            
-            # Insert our script right before the closing </head> tag
-            sed -i 's|</head>|<script src="/analytics/inject.js"></script></head>|' "$htmlfile"
-            
-            # Verify the changes
-            if grep -q "analytics/inject.js" "$htmlfile"; then
-              echo "✅ Script reference added successfully"
-              rm "${htmlfile}.bak"
-            else
-              echo "❌ Failed to add script reference, restoring backup"
-              mv "${htmlfile}.bak" "$htmlfile"
-            fi
-          done
 
       - name: Deploy to Firebase Preview Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
