@@ -49,61 +49,100 @@ jobs:
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
-      - name: Find the main index.html file
+      - name: Insert Google Analytics and GTM
         run: |
-          # First, find all index.html files
-          find exb/ArcGISExperienceBuilder/app -name "index.html" > all_index_files.txt
-          cat all_index_files.txt
-          echo "Found $(wc -l < all_index_files.txt) index.html files"
+          # Create insert-analytics.js file
+          cat > insert-analytics.js << 'EOL'
+          const fs = require('fs');
+          const path = require('path');
           
-          # Now look for the main one (without 'unsupported-browser' in the path)
-          grep -v "unsupported-browser" all_index_files.txt > main_index_files.txt
+          // Get environment variables
+          const GA_ID = process.env.GA_ID;
+          const GTM_ID = process.env.GTM_ID;
           
-          if [ -s main_index_files.txt ]; then
-            MAIN_INDEX=$(head -1 main_index_files.txt)
-            echo "Found main index.html at: $MAIN_INDEX"
-          else
-            echo "Could not find main index.html, using first one"
-            MAIN_INDEX=$(head -1 all_index_files.txt)
-          fi
+          // Path to the app directory where HTML files are located
+          const appPath = path.join(process.cwd(), 'app');
           
-          echo "MAIN_INDEX=$MAIN_INDEX" >> $GITHUB_ENV
+          // Google Analytics code to insert after <head>
+          const headCode = `<!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          </script>
+          <!-- Google Tag Manager -->
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_ID}');</script>
+          <!-- End Google Tag Manager -->`;
           
-          # Display the start of the file for verification
-          echo "First 10 lines of $MAIN_INDEX:"
-          head -10 "$MAIN_INDEX"
-      
-      # Direct injection of analytics code
-      - name: Inject analytics code
-        run: |
-          # Create a backup
-          cp "$MAIN_INDEX" "$MAIN_INDEX.bak"
+          // Code to insert after <body>
+          const bodyCode = `<!-- Google Tag Manager (noscript) -->
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <!-- End Google Tag Manager (noscript) -->`;
           
-          # Analytics code to inject
-          HEAD_SCRIPT="<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=$GA_ID\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', '$GA_ID');\n</script>\n<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','$GTM_ID');</script>\n<!-- End Google Tag Manager -->"
+          // Function to recursively find HTML files
+          function findHtmlFiles(directory) {
+            let htmlFiles = [];
+            const items = fs.readdirSync(directory);
+            
+            for (const item of items) {
+              const fullPath = path.join(directory, item);
+              const stat = fs.statSync(fullPath);
+              
+              if (stat.isDirectory()) {
+                htmlFiles = htmlFiles.concat(findHtmlFiles(fullPath));
+              } else if (item.endsWith('.html')) {
+                htmlFiles.push(fullPath);
+              }
+            }
+            
+            return htmlFiles;
+          }
           
-          BODY_SCRIPT="<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=$GTM_ID\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->"
+          // Function to insert analytics code into HTML files
+          function insertAnalytics(filePath) {
+            console.log(`Processing ${filePath}`);
+            let content = fs.readFileSync(filePath, 'utf8');
+            
+            // Insert after <head>
+            content = content.replace(/<head>/i, `<head>\n  ${headCode}`);
+            
+            // Insert after <body>
+            content = content.replace(/<body>/i, `<body>\n  ${bodyCode}`);
+            
+            fs.writeFileSync(filePath, content);
+            console.log(`Analytics code inserted into ${filePath}`);
+          }
           
-          # Use direct file replacement with explicit EOF
-          awk -v head_script="$HEAD_SCRIPT" -v body_script="$BODY_SCRIPT" '
-          /<head>/ { print; print head_script; next }
-          /<body>/ { print; print body_script; next }
-          { print }
-          ' "$MAIN_INDEX.bak" > "$MAIN_INDEX.new"
+          // Find and process all HTML files
+          try {
+            const htmlFiles = findHtmlFiles(appPath);
+            console.log(`Found ${htmlFiles.length} HTML files`);
+            
+            for (const file of htmlFiles) {
+              insertAnalytics(file);
+            }
+            
+            console.log('Analytics code insertion complete!');
+          } catch (error) {
+            console.error('Error inserting analytics code:', error);
+            process.exit(1);
+          }
+          EOL
           
-          mv "$MAIN_INDEX.new" "$MAIN_INDEX"
-          
-          # Verify the changes
-          echo "Checking for analytics code in the modified file:"
-          grep -A 3 "Google tag" "$MAIN_INDEX" || echo "Google tag not found!"
-          grep -A 3 "Google Tag Manager" "$MAIN_INDEX" || echo "Google Tag Manager not found!"
-          
-          # Display beginning of the file
-          echo "First 20 lines of modified file:"
-          head -20 "$MAIN_INDEX"
+          # Execute the script
+          node insert-analytics.js
+        working-directory: exb/ArcGISExperienceBuilder
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
           GA_ID: ${{ secrets.GA_ID }}
+
 
       - name: Deploy to Firebase Preview Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
