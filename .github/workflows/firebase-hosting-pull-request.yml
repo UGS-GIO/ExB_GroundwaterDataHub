@@ -145,6 +145,70 @@ jobs:
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
           GA_ID: ${{ secrets.GA_ID }}
+          
+      # Create a separate file with our analytics tags injected
+      - name: Create custom index.html with analytics
+        run: |
+          # Find the main index.html
+          HTML_FILE=$(find exb/ArcGISExperienceBuilder/app -name "index.html" | head -1)
+          echo "Found main HTML file at: $HTML_FILE"
+          
+          if [ -z "$HTML_FILE" ]; then
+            echo "❌ Could not find index.html file"
+            exit 1
+          fi
+          
+          # Create temporary directory for our modified files
+          mkdir -p /tmp/modified_app
+          
+          # Copy all files from the app directory to our temp directory
+          cp -r exb/ArcGISExperienceBuilder/app/* /tmp/modified_app/
+          
+          # Get the relative path of the HTML file
+          RELATIVE_PATH=${HTML_FILE#exb/ArcGISExperienceBuilder/app/}
+          MODIFIED_HTML="/tmp/modified_app/$RELATIVE_PATH"
+          
+          echo "Creating modified version at: $MODIFIED_HTML"
+          
+          # Create a simple Node.js script to modify the HTML
+          cat > /tmp/modify_html.js << EOL
+          const fs = require('fs');
+          
+          // Read the analytics script files
+          const headScript = fs.readFileSync('/tmp/head_script.txt', 'utf8');
+          const bodyScript = fs.readFileSync('/tmp/body_script.txt', 'utf8');
+          
+          // Read the index.html file
+          const htmlPath = process.argv[2];
+          let html = fs.readFileSync(htmlPath, 'utf8');
+          
+          // Insert the head script after <head> tag
+          html = html.replace('<head>', '<head>' + headScript);
+          
+          // Insert the body script after <body> tag
+          html = html.replace('<body>', '<body>' + bodyScript);
+          
+          // Write the modified HTML back to the file
+          fs.writeFileSync(htmlPath, html);
+          
+          console.log('✅ Analytics successfully injected');
+          EOL
+          
+          # Run the Node.js script to modify the HTML
+          node /tmp/modify_html.js "$MODIFIED_HTML"
+          
+          # Verify the changes
+          if grep -q "${GA_ID}" "$MODIFIED_HTML" && grep -q "${GTM_ID}" "$MODIFIED_HTML"; then
+            echo "✅ Analytics successfully added to modified HTML file"
+            # Copy the modified files back to the original location
+            cp -r /tmp/modified_app/* exb/ArcGISExperienceBuilder/app/
+          else
+            echo "❌ Failed to add analytics to modified HTML file"
+            exit 1
+          fi
+        env:
+          GTM_ID: ${{ secrets.GTM_ID }}
+          GA_ID: ${{ secrets.GA_ID }}
 
       - name: Deploy to Firebase Preview Channel
         uses: FirebaseExtended/action-hosting-deploy@v0
