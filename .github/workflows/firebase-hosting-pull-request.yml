@@ -49,201 +49,58 @@ jobs:
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
-      - name: Create and run analytics injection script
+      - name: Find the main index.html file
         run: |
-          cat > inject-analytics.js << 'EOL'
-          const fs = require('fs');
-          const path = require('path');
+          # First, find all index.html files
+          find exb/ArcGISExperienceBuilder/app -name "index.html" > all_index_files.txt
+          cat all_index_files.txt
+          echo "Found $(wc -l < all_index_files.txt) index.html files"
           
-          // Get the GTM and GA IDs from environment variables
-          const gtmId = process.env.GTM_ID || 'GTM-NKWNJCNV';
-          const gaId = process.env.GA_ID || 'G-DGFTX280H9';
+          # Now look for the main one (without 'unsupported-browser' in the path)
+          grep -v "unsupported-browser" all_index_files.txt > main_index_files.txt
           
-          console.log(`GTM ID: ${gtmId}`);
-          console.log(`GA ID: ${gaId}`);
-          
-          // Analytics scripts to inject
-          const headScript = `<!-- Google tag (gtag.js) -->
-          <script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}"></script>
-          <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          
-            gtag('config', '${gaId}');
-          </script>
-          <!-- Google Tag Manager -->
-          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','${gtmId}');</script>
-          <!-- End Google Tag Manager -->`;
-          
-          const bodyScript = `<!-- Google Tag Manager (noscript) -->
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
-          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-          <!-- End Google Tag Manager (noscript) -->`;
-          
-          // Path to the app directory
-          const appDir = process.argv[2];
-          console.log(`App directory: ${appDir}`);
-          
-          // Find index.html files
-          function findIndexHtmlFiles(dir, results = []) {
-            const files = fs.readdirSync(dir);
-            
-            for (const file of files) {
-              const filePath = path.join(dir, file);
-              
-              if (fs.statSync(filePath).isDirectory()) {
-                findIndexHtmlFiles(filePath, results);
-              } else if (file === 'index.html') {
-                results.push(filePath);
-              }
-            }
-            
-            return results;
-          }
-          
-          console.log(`Searching for index.html files in ${appDir}...`);
-          const indexFiles = findIndexHtmlFiles(appDir);
-          console.log(`Found ${indexFiles.length} index.html files.`);
-          
-          // Find the main index.html file
-          let mainIndexFile = null;
-          let mainIndexContent = null;
-          
-          for (const file of indexFiles) {
-            try {
-              const content = fs.readFileSync(file, 'utf8');
-              
-              // Check if this is the main index file
-              if (content.includes('Utah Groundwater Data Hub')) {
-                mainIndexFile = file;
-                mainIndexContent = content;
-                console.log(`Found main index.html at: ${file}`);
-                break;
-              }
-            } catch (err) {
-              console.error(`Error reading file ${file}: ${err.message}`);
-            }
-          }
-          
-          if (!mainIndexFile) {
-            console.log('Could not find the main index.html file. Using the first index.html found instead.');
-            if (indexFiles.length > 0) {
-              mainIndexFile = indexFiles[0];
-              try {
-                mainIndexContent = fs.readFileSync(mainIndexFile, 'utf8');
-                console.log(`Using index.html at: ${mainIndexFile}`);
-              } catch (err) {
-                console.error(`Error reading file ${mainIndexFile}: ${err.message}`);
-                process.exit(1);
-              }
-            } else {
-              console.error('No index.html files found!');
-              process.exit(1);
-            }
-          }
-          
-          // Backup the original file
-          const backupFile = mainIndexFile + '.bak';
-          fs.writeFileSync(backupFile, mainIndexContent);
-          console.log(`Backup created at: ${backupFile}`);
-          
-          // Modify the HTML content
-          console.log('Injecting analytics code...');
-          let modifiedContent = mainIndexContent.replace('<head>', '<head>' + headScript);
-          modifiedContent = modifiedContent.replace('<body>', '<body>' + bodyScript);
-          
-          // Write the modified content back to the file
-          fs.writeFileSync(mainIndexFile, modifiedContent);
-          
-          // Verify the changes
-          const verifiedContent = fs.readFileSync(mainIndexFile, 'utf8');
-          if (verifiedContent.includes(gaId) && verifiedContent.includes(gtmId)) {
-            console.log('✅ Analytics code successfully injected!');
-            
-            // Show the beginning of the file for verification
-            const headStart = verifiedContent.indexOf('<head>');
-            const headEnd = headStart + 300;
-            console.log('Preview of modified file:');
-            console.log(verifiedContent.substring(headStart, headEnd));
-          } else {
-            console.error('❌ Failed to inject analytics code!');
-            console.log('Restoring backup...');
-            fs.copyFileSync(backupFile, mainIndexFile);
-            process.exit(1);
-          }
-          EOL
-          
-          # Run the script
-          node inject-analytics.js exb/ArcGISExperienceBuilder/app
-        env:
-          GTM_ID: ${{ secrets.GTM_ID }}
-          GA_ID: ${{ secrets.GA_ID }}
-          
-      # Create a separate file with our analytics tags injected
-      - name: Create custom index.html with analytics
-        run: |
-          # Find the main index.html
-          HTML_FILE=$(find exb/ArcGISExperienceBuilder/app -name "index.html" | head -1)
-          echo "Found main HTML file at: $HTML_FILE"
-          
-          if [ -z "$HTML_FILE" ]; then
-            echo "❌ Could not find index.html file"
-            exit 1
+          if [ -s main_index_files.txt ]; then
+            MAIN_INDEX=$(head -1 main_index_files.txt)
+            echo "Found main index.html at: $MAIN_INDEX"
+          else
+            echo "Could not find main index.html, using first one"
+            MAIN_INDEX=$(head -1 all_index_files.txt)
           fi
           
-          # Create temporary directory for our modified files
-          mkdir -p /tmp/modified_app
+          echo "MAIN_INDEX=$MAIN_INDEX" >> $GITHUB_ENV
           
-          # Copy all files from the app directory to our temp directory
-          cp -r exb/ArcGISExperienceBuilder/app/* /tmp/modified_app/
+          # Display the start of the file for verification
+          echo "First 10 lines of $MAIN_INDEX:"
+          head -10 "$MAIN_INDEX"
+      
+      # Direct injection of analytics code
+      - name: Inject analytics code
+        run: |
+          # Create a backup
+          cp "$MAIN_INDEX" "$MAIN_INDEX.bak"
           
-          # Get the relative path of the HTML file
-          RELATIVE_PATH=${HTML_FILE#exb/ArcGISExperienceBuilder/app/}
-          MODIFIED_HTML="/tmp/modified_app/$RELATIVE_PATH"
+          # Analytics code to inject
+          HEAD_SCRIPT="<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=$GA_ID\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', '$GA_ID');\n</script>\n<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','$GTM_ID');</script>\n<!-- End Google Tag Manager -->"
           
-          echo "Creating modified version at: $MODIFIED_HTML"
+          BODY_SCRIPT="<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=$GTM_ID\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->"
           
-          # Create a simple Node.js script to modify the HTML
-          cat > /tmp/modify_html.js << EOL
-          const fs = require('fs');
+          # Use direct file replacement with explicit EOF
+          awk -v head_script="$HEAD_SCRIPT" -v body_script="$BODY_SCRIPT" '
+          /<head>/ { print; print head_script; next }
+          /<body>/ { print; print body_script; next }
+          { print }
+          ' "$MAIN_INDEX.bak" > "$MAIN_INDEX.new"
           
-          // Read the analytics script files
-          const headScript = fs.readFileSync('/tmp/head_script.txt', 'utf8');
-          const bodyScript = fs.readFileSync('/tmp/body_script.txt', 'utf8');
-          
-          // Read the index.html file
-          const htmlPath = process.argv[2];
-          let html = fs.readFileSync(htmlPath, 'utf8');
-          
-          // Insert the head script after <head> tag
-          html = html.replace('<head>', '<head>' + headScript);
-          
-          // Insert the body script after <body> tag
-          html = html.replace('<body>', '<body>' + bodyScript);
-          
-          // Write the modified HTML back to the file
-          fs.writeFileSync(htmlPath, html);
-          
-          console.log('✅ Analytics successfully injected');
-          EOL
-          
-          # Run the Node.js script to modify the HTML
-          node /tmp/modify_html.js "$MODIFIED_HTML"
+          mv "$MAIN_INDEX.new" "$MAIN_INDEX"
           
           # Verify the changes
-          if grep -q "${GA_ID}" "$MODIFIED_HTML" && grep -q "${GTM_ID}" "$MODIFIED_HTML"; then
-            echo "✅ Analytics successfully added to modified HTML file"
-            # Copy the modified files back to the original location
-            cp -r /tmp/modified_app/* exb/ArcGISExperienceBuilder/app/
-          else
-            echo "❌ Failed to add analytics to modified HTML file"
-            exit 1
-          fi
+          echo "Checking for analytics code in the modified file:"
+          grep -A 3 "Google tag" "$MAIN_INDEX" || echo "Google tag not found!"
+          grep -A 3 "Google Tag Manager" "$MAIN_INDEX" || echo "Google Tag Manager not found!"
+          
+          # Display beginning of the file
+          echo "First 20 lines of modified file:"
+          head -20 "$MAIN_INDEX"
         env:
           GTM_ID: ${{ secrets.GTM_ID }}
           GA_ID: ${{ secrets.GA_ID }}
