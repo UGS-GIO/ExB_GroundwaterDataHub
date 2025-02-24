@@ -49,45 +49,97 @@ jobs:
           chmod -R 777 app
         working-directory: exb/ArcGISExperienceBuilder
 
-      - name: Add analytics script to HTML file
+      - name: Create analytics script files
+        run: |
+          # Create the head analytics script file
+          cat > /tmp/head_script.txt << EOL
+          <!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', '${GA_ID}');
+          </script>
+          <!-- Google Tag Manager -->
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM_ID}');</script>
+          <!-- End Google Tag Manager -->
+          EOL
+          
+          # Create the body script file
+          cat > /tmp/body_script.txt << EOL
+          <!-- Google Tag Manager (noscript) -->
+          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          <!-- End Google Tag Manager (noscript) -->
+          EOL
+        env:
+          GTM_ID: ${{ secrets.GTM_ID }}
+          GA_ID: ${{ secrets.GA_ID }}
+          
+      # Create a separate file with our analytics tags injected
+      - name: Create custom index.html with analytics
         run: |
           # Find the main index.html
-          find exb/ArcGISExperienceBuilder/app -type f -name "*.html" | xargs grep -l "<title>Utah Groundwater Data Hub</title>" > /tmp/index_files.txt
+          HTML_FILE=$(find exb/ArcGISExperienceBuilder/app -name "index.html" | head -1)
+          echo "Found main HTML file at: $HTML_FILE"
           
-          if [ ! -s /tmp/index_files.txt ]; then
-            echo "❌ Could not find the main HTML file with title 'Utah Groundwater Data Hub'"
-            echo "Searching for any index.html files instead:"
-            find exb/ArcGISExperienceBuilder/app -name "index.html" | head -5
+          if [ -z "$HTML_FILE" ]; then
+            echo "❌ Could not find index.html file"
             exit 1
           fi
           
-          # Get the first matching file
-          HTML_FILE=$(head -1 /tmp/index_files.txt)
-          echo "Found main HTML file at: $HTML_FILE"
+          # Create temporary directory for our modified files
+          mkdir -p /tmp/modified_app
           
-          # Create backup
-          cp "$HTML_FILE" "${HTML_FILE}.bak"
+          # Copy all files from the app directory to our temp directory
+          cp -r exb/ArcGISExperienceBuilder/app/* /tmp/modified_app/
           
-          # Add analytics code between meta tags and style tag
-          GA_SCRIPT='<!-- Google tag (gtag.js) -->\n<script async src="https://www.googletagmanager.com/gtag/js?id='${GA_ID}'"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag("js", new Date());\n\n  gtag("config", "'${GA_ID}'");\n</script>\n<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":\nnew Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=\n"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,"script","dataLayer","'${GTM_ID}'");</script>\n<!-- End Google Tag Manager -->'
+          # Get the relative path of the HTML file
+          RELATIVE_PATH=${HTML_FILE#exb/ArcGISExperienceBuilder/app/}
+          MODIFIED_HTML="/tmp/modified_app/$RELATIVE_PATH"
           
-          GTM_BODY='<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id='${GTM_ID}'"\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->'
+          echo "Creating modified version at: $MODIFIED_HTML"
           
-          # First, add the GTM body code after the opening body tag but before the first div
-          perl -i -pe 's|(<body>)(.+?<div)|$1\n'"$GTM_BODY"'\n$2|s' "$HTML_FILE"
+          # Create a simple Node.js script to modify the HTML
+          cat > /tmp/modify_html.js << EOL
+          const fs = require('fs');
           
-          # Now add the GA/GTM head code after the base tag but before the style tag
-          perl -i -pe 's|(<base href="./cdn/\d+/"/>)(<style>)|$1\n'"$GA_SCRIPT"'\n$2|s' "$HTML_FILE"
+          // Read the analytics script files
+          const headScript = fs.readFileSync('/tmp/head_script.txt', 'utf8');
+          const bodyScript = fs.readFileSync('/tmp/body_script.txt', 'utf8');
+          
+          // Read the index.html file
+          const htmlPath = process.argv[2];
+          let html = fs.readFileSync(htmlPath, 'utf8');
+          
+          // Insert the head script after <head> tag
+          html = html.replace('<head>', '<head>' + headScript);
+          
+          // Insert the body script after <body> tag
+          html = html.replace('<body>', '<body>' + bodyScript);
+          
+          // Write the modified HTML back to the file
+          fs.writeFileSync(htmlPath, html);
+          
+          console.log('✅ Analytics successfully injected');
+          EOL
+          
+          # Run the Node.js script to modify the HTML
+          node /tmp/modify_html.js "$MODIFIED_HTML"
           
           # Verify the changes
-          if grep -q "${GA_ID}" "$HTML_FILE" && grep -q "${GTM_ID}" "$HTML_FILE"; then
-            grep -A 2 "Google tag" "$HTML_FILE"
-            grep -A 2 "Google Tag Manager (noscript)" "$HTML_FILE"
-            echo "✅ Analytics successfully added to HTML file"
-            rm "${HTML_FILE}.bak"
+          if grep -q "${GA_ID}" "$MODIFIED_HTML" && grep -q "${GTM_ID}" "$MODIFIED_HTML"; then
+            echo "✅ Analytics successfully added to modified HTML file"
+            # Copy the modified files back to the original location
+            cp -r /tmp/modified_app/* exb/ArcGISExperienceBuilder/app/
           else
-            echo "❌ Failed to add analytics, restoring backup"
-            mv "${HTML_FILE}.bak" "$HTML_FILE"
+            echo "❌ Failed to add analytics to modified HTML file"
             exit 1
           fi
         env:
