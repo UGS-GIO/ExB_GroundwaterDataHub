@@ -11,7 +11,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 58,
-    "originalHeight": 65
+    "originalHeight": 65,
+    "referredIds": []
   },
   "1716214691303": {
     "originalName": "GSL-Logo.png",
@@ -25,7 +26,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 428,
-    "originalHeight": 210
+    "originalHeight": 210,
+    "referredIds": []
   },
   "1716214884425": {
     "originalName": "UGS-logo.png",
@@ -39,7 +41,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 224,
-    "originalHeight": 241
+    "originalHeight": 241,
+    "referredIds": []
   },
   "1730136731406": {
     "originalName": "WRI-logo-large.png",
@@ -53,7 +56,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 1051,
-    "originalHeight": 1351
+    "originalHeight": 1351,
+    "referredIds": []
   },
   "1731949454356": {
     "originalName": "WaterResourcesLogo.png",
@@ -67,7 +71,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 791,
-    "originalHeight": 868
+    "originalHeight": 868,
+    "referredIds": []
   },
   "1731949673670": {
     "originalName": "UGSlogo.png",
@@ -81,7 +86,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 767,
-    "originalHeight": 868
+    "originalHeight": 868,
+    "referredIds": []
   },
   "1733435562304": {
     "originalName": "square.png",
@@ -95,7 +101,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 688,
-    "originalHeight": 688
+    "originalHeight": 688,
+    "referredIds": []
   },
   "1733435658860": {
     "originalName": "circle.png",
@@ -109,7 +116,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 688,
-    "originalHeight": 688
+    "originalHeight": 688,
+    "referredIds": []
   },
   "1733445103950": {
     "originalName": "square2.png",
@@ -123,7 +131,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 752,
-    "originalHeight": 752
+    "originalHeight": 752,
+    "referredIds": []
   },
   "1733445159050": {
     "originalName": "circle2.png",
@@ -137,7 +146,8 @@
     "fileFormat": "image/png",
     "isUseCompress": false,
     "originalWidth": 752,
-    "originalHeight": 752
+    "originalHeight": 752,
+    "referredIds": []
   },
   "1741216624951": {
     "originalName": "splash-bicknell-marsh.jpg",
@@ -151,7 +161,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 2040,
-    "originalHeight": 1536
+    "originalHeight": 1536,
+    "referredIds": []
   },
   "1741217116573": {
     "originalName": "gsl-current-studies.jpg",
@@ -165,7 +176,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1200,
-    "originalHeight": 900
+    "originalHeight": 900,
+    "referredIds": []
   },
   "1741217295165": {
     "originalName": "gsl-stratplan.jpg",
@@ -179,7 +191,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1030,
-    "originalHeight": 773
+    "originalHeight": 773,
+    "referredIds": []
   },
   "1741217343067": {
     "originalName": "gsl-basinplan.jpg",
@@ -193,7 +206,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1030,
-    "originalHeight": 773
+    "originalHeight": 773,
+    "referredIds": []
   },
   "1741217396790": {
     "originalName": "gsl-website-img.jpg",
@@ -207,7 +221,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 850,
-    "originalHeight": 567
+    "originalHeight": 567,
+    "referredIds": []
   },
   "1741217893189": {
     "originalName": "ugs-website-img.jpg",
@@ -221,7 +236,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 850,
-    "originalHeight": 567
+    "originalHeight": 567,
+    "referredIds": []
   },
   "1741217988267": {
     "originalName": "gsl-website-header.jpg",
@@ -235,7 +251,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 2012,
-    "originalHeight": 1540
+    "originalHeight": 1540,
+    "referredIds": []
   },
   "1741274140615": {
     "originalName": "wri-header.jpg",
@@ -249,7 +266,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1500,
-    "originalHeight": 1505
+    "originalHeight": 1505,
+    "referredIds": []
   },
   "1741274619560": {
     "originalName": "wri-overlaygrouse.jpg",
@@ -263,7 +281,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1002,
-    "originalHeight": 752
+    "originalHeight": 752,
+    "referredIds": []
   },
   "1741274680486": {
     "originalName": "wri-overlaythreecreeks.jpg",
@@ -277,7 +296,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1024,
-    "originalHeight": 768
+    "originalHeight": 768,
+    "referredIds": []
   },
   "1741275964765": {
     "originalName": "wri-overlayvernon.jpg",
@@ -291,7 +311,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1297,
-    "originalHeight": 756
+    "originalHeight": 756,
+    "referredIds": []
   },
   "1741276374909": {
     "originalName": "wri-overlaytintic.jpg",
@@ -305,7 +326,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 996,
-    "originalHeight": 749
+    "originalHeight": 749,
+    "referredIds": []
   },
   "1741276743395": {
     "originalName": "wri-overlaymontezuma.jpg",
@@ -319,7 +341,8 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1002,
-    "originalHeight": 750
+    "originalHeight": 750,
+    "referredIds": []
   },
   "1741277323167": {
     "originalName": "pj-popup-header.jpg",
@@ -335,7 +358,10 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1500,
-    "originalHeight": 1000
+    "originalHeight": 1000,
+    "referredIds": [
+      "1741277450375"
+    ]
   },
   "1741277382208": {
     "originalName": "bda-popup-header.jpg",
@@ -351,7 +377,10 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1204,
-    "originalHeight": 525
+    "originalHeight": 525,
+    "referredIds": [
+      "1741278072407"
+    ]
   },
   "1741277414860": {
     "originalName": "gis-popup-header.jpg",
@@ -367,7 +396,10 @@
     "fileFormat": "image/jpeg",
     "isUseCompress": false,
     "originalWidth": 1192,
-    "originalHeight": 514
+    "originalHeight": 514,
+    "referredIds": [
+      "1741277437317"
+    ]
   },
   "1741277437317": {
     "file": {},
@@ -376,7 +408,8 @@
     "referedIds": [],
     "fileFormat": "image/jpeg",
     "originId": "1741277414860",
-    "resourcesPrefix": "images/templates"
+    "resourcesPrefix": "images/templates",
+    "referredIds": []
   },
   "1741277450375": {
     "file": {},
@@ -385,7 +418,8 @@
     "referedIds": [],
     "fileFormat": "image/jpeg",
     "originId": "1741277323167",
-    "resourcesPrefix": "images/templates"
+    "resourcesPrefix": "images/templates",
+    "referredIds": []
   },
   "1741278072407": {
     "file": {},
@@ -394,6 +428,464 @@
     "referedIds": [],
     "fileFormat": "image/jpeg",
     "originId": "1741277382208",
+    "resourcesPrefix": "images/templates",
+    "referredIds": []
+  },
+  "1744748089182": {
+    "originalName": "photocollage.jpg",
+    "fileName": "1744748089182.jpg",
+    "size": 152885,
+    "url": "${appResourceUrl}/images/widget_3083/1744748089182.jpg",
+    "created": 1744748089182,
+    "resourcesPrefix": "images/widget_3083",
+    "referedIds": [],
+    "originId": "1744748089182",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 755,
+    "originalHeight": 520,
+    "referredIds": []
+  },
+  "1744751189153": {
+    "originalName": "bryce-canyon.png",
+    "fileName": "1744751189153.png",
+    "size": 762661,
+    "url": "${appResourceUrl}/images/widget_3105/1744751189153.png",
+    "created": 1744751189153,
+    "resourcesPrefix": "images/widget_3105",
+    "referedIds": [],
+    "originId": "1744751189153",
+    "fileFormat": "image/png",
+    "isUseCompress": false,
+    "originalWidth": 755,
+    "originalHeight": 520,
+    "referredIds": []
+  },
+  "1744827992886": {
+    "originalName": "cedar-valley.png",
+    "fileName": "1744827992886.png",
+    "size": 1021640,
+    "url": "${appResourceUrl}/images/widget_3129/1744827992886.png",
+    "created": 1744827992886,
+    "resourcesPrefix": "images/widget_3129",
+    "referedIds": [],
+    "originId": "1744827992886",
+    "fileFormat": "image/png",
+    "isUseCompress": false,
+    "originalWidth": 798,
+    "originalHeight": 559,
+    "referredIds": []
+  },
+  "1744896416411": {
+    "originalName": "goshen-valley.png",
+    "fileName": "1744896416411.png",
+    "size": 593868,
+    "url": "${appResourceUrl}/images/widget_3151/1744896416411.png",
+    "created": 1744896416411,
+    "resourcesPrefix": "images/widget_3151",
+    "referedIds": [],
+    "originId": "1744896416411",
+    "fileFormat": "image/png",
+    "isUseCompress": false,
+    "originalWidth": 748,
+    "originalHeight": 468,
+    "referredIds": []
+  },
+  "1747941532652": {
+    "originalName": "Mapping_Groundwater_Quality.jpg",
+    "fileName": "1747941532652.jpg",
+    "size": 375585,
+    "url": "${appResourceUrl}/images/widget_3340/1747941532652.jpg",
+    "created": 1747941532652,
+    "resourcesPrefix": "images/widget_3340",
+    "referredIds": [
+      "1747949741913",
+      "1749671533897"
+    ],
+    "originId": "1747941532652",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 1267,
+    "originalHeight": 844
+  },
+  "1747943057077": {
+    "originalName": "Estimate_Groundwater_Flow_Salinity.jpg",
+    "fileName": "1747943057077.jpg",
+    "size": 132946,
+    "url": "${appResourceUrl}/images/widget_3363/1747943057077.jpg",
+    "created": 1747943057077,
+    "resourcesPrefix": "images/widget_3363",
+    "referredIds": [
+      "1747949750946"
+    ],
+    "originId": "1747943057077",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 670,
+    "originalHeight": 510
+  },
+  "1747943958447": {
+    "originalName": "Utah_Flux_Network_Map_thumbnail.jpg",
+    "fileName": "1747943958447.jpg",
+    "size": 67400,
+    "url": "${appResourceUrl}/images/widget_3340/1747943958447.jpg",
+    "created": 1747943958447,
+    "resourcesPrefix": "images/widget_3340",
+    "referredIds": [],
+    "originId": "1747943958447",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 641,
+    "originalHeight": 644
+  },
+  "1747944140219": {
+    "originalName": "Utah_Flux_Network.jpg",
+    "fileName": "1747944140219.jpg",
+    "size": 103587,
+    "url": "${appResourceUrl}/images/widget_3340/1747944140219.jpg",
+    "created": 1747944140219,
+    "resourcesPrefix": "images/widget_3340",
+    "referredIds": [
+      "1747949681470",
+      "1749670849593"
+    ],
+    "originId": "1747944140219",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 845,
+    "originalHeight": 321
+  },
+  "1747944151757": {
+    "file": {},
+    "fileName": "1747944151757.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747944151757.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747944380560": {
+    "file": {},
+    "fileName": "1747944380560.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747944380560.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747944885936": {
+    "originalName": "Utah_Wetlands.jpg",
+    "fileName": "1747944885936.jpg",
+    "size": 51815,
+    "url": "${appResourceUrl}/images/widget_3398/1747944885936.jpg",
+    "created": 1747944885936,
+    "resourcesPrefix": "images/widget_3398",
+    "referredIds": [
+      "1747949730486",
+      "1749670839251"
+    ],
+    "originId": "1747944885936",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 798,
+    "originalHeight": 394
+  },
+  "1747945032064": {
+    "originalName": "Utah_Wetlands_Map_thumnail_01.jpg",
+    "fileName": "1747945032064.jpg",
+    "size": 56774,
+    "url": "${appResourceUrl}/images/widget_3398/1747945032064.jpg",
+    "created": 1747945032064,
+    "resourcesPrefix": "images/widget_3398",
+    "referredIds": [],
+    "originId": "1747945032064",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 460,
+    "originalHeight": 456
+  },
+  "1747945439594": {
+    "originalName": "Utah_Wetlands_Map_thumnail_02.jpg",
+    "fileName": "1747945439594.jpg",
+    "size": 189131,
+    "url": "${appResourceUrl}/images/widget_3398/1747945439594.jpg",
+    "created": 1747945439594,
+    "resourcesPrefix": "images/widget_3398",
+    "referredIds": [],
+    "originId": "1747945439594",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 631,
+    "originalHeight": 658
+  },
+  "1747945453827": {
+    "file": {},
+    "fileName": "1747945453827.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945453827.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747945439594",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747945455990": {
+    "file": {},
+    "fileName": "1747945455990.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945455990.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747945439594",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747945582250": {
+    "originalName": "Groundwater_Monitoring_Portal_thumbnail_01.jpg",
+    "fileName": "1747945582250.jpg",
+    "size": 102510,
+    "url": "${appResourceUrl}/images/widget_3409/1747945582250.jpg",
+    "created": 1747945582250,
+    "resourcesPrefix": "images/widget_3409",
+    "referredIds": [],
+    "originId": "1747945582250",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 615,
+    "originalHeight": 652
+  },
+  "1747945600361": {
+    "file": {},
+    "fileName": "1747945600361.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945600361.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747945582250",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747945617495": {
+    "file": {},
+    "fileName": "1747945617495.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945617495.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747943958447",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747945871567": {
+    "originalName": "Utah_Wetlands_Map_thumnail_03.jpg",
+    "fileName": "1747945871567.jpg",
+    "size": 54626,
+    "url": "${appResourceUrl}/images/widget_3398/1747945871567.jpg",
+    "created": 1747945871567,
+    "resourcesPrefix": "images/widget_3398",
+    "referredIds": [],
+    "originId": "1747945871567",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 663,
+    "originalHeight": 676
+  },
+  "1747945889279": {
+    "file": {},
+    "fileName": "1747945889279.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945889279.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747945871567",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747945906163": {
+    "file": {},
+    "fileName": "1747945906163.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945906163.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747945871567",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747945922582": {
+    "file": {},
+    "fileName": "1747945922582.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747945922582.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747945871567",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747946551401": {
+    "file": {},
+    "fileName": "1747946551401.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747946551401.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747946643326": {
+    "originalName": "Groundwater_Monitoring_Portal.jpg",
+    "fileName": "1747946643326.jpg",
+    "size": 77643,
+    "url": "${appResourceUrl}/images/widget_3409/1747946643326.jpg",
+    "created": 1747946643326,
+    "resourcesPrefix": "images/widget_3409",
+    "referredIds": [
+      "1747949724675",
+      "1749671176498"
+    ],
+    "originId": "1747946643326",
+    "fileFormat": "image/jpeg",
+    "isUseCompress": false,
+    "originalWidth": 797,
+    "originalHeight": 400
+  },
+  "1747946653893": {
+    "file": {},
+    "fileName": "1747946653893.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747946653893.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747946643326",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949436695": {
+    "file": {},
+    "fileName": "1747949436695.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949436695.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949654168": {
+    "file": {},
+    "fileName": "1747949654168.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949654168.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949681470": {
+    "file": {},
+    "fileName": "1747949681470.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949681470.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949724675": {
+    "file": {},
+    "fileName": "1747949724675.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949724675.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747946643326",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949730486": {
+    "file": {},
+    "fileName": "1747949730486.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949730486.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944885936",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949741913": {
+    "file": {},
+    "fileName": "1747949741913.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949741913.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747941532652",
+    "resourcesPrefix": "images/templates"
+  },
+  "1747949750946": {
+    "file": {},
+    "fileName": "1747949750946.jpeg",
+    "url": "${appResourceUrl}/images/templates/1747949750946.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747943057077",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749669751450": {
+    "file": {},
+    "fileName": "1749669751450.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749669751450.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749670839251": {
+    "file": {},
+    "fileName": "1749670839251.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749670839251.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944885936",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749670849593": {
+    "file": {},
+    "fileName": "1749670849593.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749670849593.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749671176498": {
+    "file": {},
+    "fileName": "1749671176498.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749671176498.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747946643326",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749671533897": {
+    "file": {},
+    "fileName": "1749671533897.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749671533897.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747941532652",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749671726583": {
+    "file": {},
+    "fileName": "1749671726583.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749671726583.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747943057077",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749672682773": {
+    "file": {},
+    "fileName": "1749672682773.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749672682773.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747946643326",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749672692617": {
+    "file": {},
+    "fileName": "1749672692617.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749672692617.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747946643326",
+    "resourcesPrefix": "images/templates"
+  },
+  "1749672704517": {
+    "file": {},
+    "fileName": "1749672704517.jpeg",
+    "url": "${appResourceUrl}/images/templates/1749672704517.jpeg",
+    "referredIds": [],
+    "fileFormat": "image/jpeg",
+    "originId": "1747944140219",
     "resourcesPrefix": "images/templates"
   }
 }

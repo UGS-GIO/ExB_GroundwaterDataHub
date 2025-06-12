@@ -49,5 +49,25 @@
       "isUploaded": true,
       "inlineSvg": false
     }
+  },
+  "1745416444429.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1745416444429.png",
+    "properties": {
+      "filename": "1745416444429.png",
+      "originalName": "icon_download_black.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1745416444429.png",
+      "isUploaded": true,
+      "inlineSvg": false
+    }
+  },
+  "1745416962020.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1745416962020.png",
+    "properties": {
+      "filename": "1745416962020.png",
+      "originalName": "icon_download_white.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1745416962020.png",
+      "isUploaded": true,
+      "inlineSvg": false
+    }
   }
 }
