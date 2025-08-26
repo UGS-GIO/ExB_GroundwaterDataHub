@@ -124216,7 +124216,8 @@
               "responsiveType": "FIT",
               "columnWidth": 200
             },
-            "layerHonorMode": "WEBMAP"
+            "layerHonorMode": "WEBMAP",
+            "updateText": false
           }
         ],
         "arrangeType": "TABS",
@@ -151166,13 +151167,6 @@
         }
       }
     },
-    "dataSource_41": {
-      "id": "dataSource_41",
-      "type": "WEB_MAP",
-      "sourceLabel": "30 year Trends",
-      "itemId": "88576bce143a486186da1f79aad2a2d0",
-      "portalUrl": "https://utahdnr.maps.arcgis.com"
-    },
     "dataSource_43": {
       "id": "dataSource_43",
       "type": "WEB_MAP",
@@ -172897,6 +172891,44 @@
               ]
             }
           ]
+        },
+        {
+          "actionId": "select-data-record-action-1756231029114",
+          "messageWidgetId": "widget_2177",
+          "actionName": "select data record action",
+          "description": null,
+          "config": {
+            "messageUseDataSource": {
+              "dataSourceId": "dataSource_46-198e386d135-layer-3",
+              "mainDataSourceId": "dataSource_46-198e386d135-layer-3",
+              "rootDataSourceId": "dataSource_46",
+              "fields": []
+            },
+            "actionUseDataSource": {
+              "dataSourceId": "dataSource_46-198e776288f-layer-6",
+              "mainDataSourceId": "dataSource_46-198e776288f-layer-6",
+              "rootDataSourceId": "dataSource_46",
+              "fields": []
+            },
+            "sqlExprObj": null,
+            "enabledDataRelationShip": true,
+            "connectionType": "SET_CUSTOM_FIELDS"
+          },
+          "version": "1.17.0",
+          "useDataSources": [
+            {
+              "dataSourceId": "dataSource_46-198e386d135-layer-3",
+              "mainDataSourceId": "dataSource_46-198e386d135-layer-3",
+              "rootDataSourceId": "dataSource_46",
+              "fields": []
+            },
+            {
+              "dataSourceId": "dataSource_46-198e776288f-layer-6",
+              "mainDataSourceId": "dataSource_46-198e776288f-layer-6",
+              "rootDataSourceId": "dataSource_46",
+              "fields": []
+            }
+          ]
         }
       ]
     },
@@ -175392,7 +175424,7 @@
     "backgroundColor": "var(--success)",
     "sticky": true
   },
-  "timestamp": 1756219836159,
+  "timestamp": 1756231689209,
   "controllerPanels": {},
   "footer": {
     "layout": {
@@ -175469,5 +175501,5 @@
       ]
     }
   },
-  "publishTimestamp": 1756219882152
+  "publishTimestamp": 1756231691215
 }
