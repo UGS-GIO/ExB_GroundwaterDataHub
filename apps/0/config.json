@@ -65728,7 +65728,17 @@
                 "style": "esriSFSSolid"
               }
             }
-          }
+          },
+          "enabled": false
+        },
+        "panTo": {
+          "enabled": false
+        },
+        "showPopup": {
+          "enabled": false
+        },
+        "zoomToFeature": {
+          "enabled": false
         }
       },
       "useDataSources": [
@@ -128127,7 +128137,7 @@
                     "family": "Avenir Next",
                     "size": 12,
                     "style": "normal",
-                    "weight": "normal",
+                    "weight": "bold",
                     "decoration": "none"
                   },
                   "horizontalAlignment": "center",
@@ -128183,7 +128193,7 @@
                     "family": "Avenir Next",
                     "size": 12,
                     "style": "normal",
-                    "weight": "normal",
+                    "weight": "bold",
                     "decoration": "none"
                   },
                   "horizontalAlignment": "center",
@@ -175424,7 +175434,7 @@
     "backgroundColor": "var(--success)",
     "sticky": true
   },
-  "timestamp": 1756231689209,
+  "timestamp": 1756234575083,
   "controllerPanels": {},
   "footer": {
     "layout": {
@@ -175501,5 +175511,5 @@
       ]
     }
   },
-  "publishTimestamp": 1756231691215
+  "publishTimestamp": 1756234975966
 }
