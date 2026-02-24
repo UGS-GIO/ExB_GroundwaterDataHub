@@ -28105,7 +28105,8 @@
           ],
           "unit": "px"
         },
-        "space": 0
+        "space": 0,
+        "justifyContent": "center"
       }
     },
     "layout_1037": {
@@ -52466,13 +52467,333 @@
           "unit": "px"
         }
       }
+    },
+    "layout_1799": {
+      "type": "FIXED",
+      "content": {
+        "5": {
+          "type": "WIDGET",
+          "bbox": {
+            "left": "378px",
+            "top": "5.00px",
+            "width": "20.00px",
+            "height": "20.00px",
+            "right": "5.00px",
+            "bottom": "381px"
+          },
+          "widgetId": "widget_3656",
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "bottom": true,
+              "top": false
+            },
+            "order": 0,
+            "lockParent": false,
+            "lockLayout": false,
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": false
+        },
+        "6": {
+          "type": "WIDGET",
+          "widgetId": "widget_3657",
+          "bbox": {
+            "left": "0%",
+            "right": "0%",
+            "top": "0%",
+            "bottom": "0%",
+            "width": "100%",
+            "height": "100%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": false,
+              "top": false,
+              "bottom": false,
+              "height": "STRETCH",
+              "width": "STRETCH"
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "order": [
+        "6",
+        "5"
+      ],
+      "setting": {
+        "lockDescendants": true
+      }
+    },
+    "layout_1800": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_3658",
+          "bbox": {
+            "width": "360px",
+            "height": "70px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        },
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_3659",
+          "bbox": {
+            "width": "360px",
+            "height": "70px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        }
+      },
+      "type": "COLUMN",
+      "label": "Default",
+      "order": [
+        "0",
+        "1"
+      ],
+      "setting": {
+        "padding": {
+          "number": [
+            20,
+            15,
+            20,
+            15
+          ],
+          "unit": "px"
+        },
+        "space": 0
+      }
+    },
+    "layout_1801": {
+      "type": "FIXED",
+      "content": {
+        "5": {
+          "type": "WIDGET",
+          "bbox": {
+            "left": "378px",
+            "top": "5.00px",
+            "width": "20.00px",
+            "height": "20.00px",
+            "right": "5.00px",
+            "bottom": "381px"
+          },
+          "widgetId": "widget_3656",
+          "setting": {
+            "autoProps": {
+              "right": false,
+              "left": true,
+              "bottom": true,
+              "top": false
+            },
+            "order": 0,
+            "lockParent": false,
+            "lockLayout": false,
+            "vCenter": false,
+            "hCenter": false
+          },
+          "isPending": false
+        },
+        "6": {
+          "type": "WIDGET",
+          "widgetId": "widget_3660",
+          "bbox": {
+            "left": "0%",
+            "right": "0%",
+            "top": "0%",
+            "bottom": "0%",
+            "width": "100%",
+            "height": "100%"
+          },
+          "setting": {
+            "autoProps": {
+              "left": false,
+              "right": false,
+              "top": false,
+              "bottom": false,
+              "height": "STRETCH",
+              "width": "STRETCH"
+            },
+            "vCenter": false,
+            "hCenter": false
+          }
+        }
+      },
+      "order": [
+        "6",
+        "5"
+      ],
+      "setting": {
+        "lockDescendants": true
+      }
+    },
+    "layout_1802": {
+      "content": {
+        "3": {
+          "type": "WIDGET",
+          "widgetId": "widget_3662",
+          "bbox": {
+            "width": "286px",
+            "height": "324px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        },
+        "4": {
+          "type": "WIDGET",
+          "widgetId": "widget_3663",
+          "bbox": {
+            "width": "286px",
+            "height": "324px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "STRETCH"
+            }
+          }
+        }
+      },
+      "type": "COLUMN",
+      "label": "Default",
+      "order": [
+        "3",
+        "4"
+      ],
+      "setting": {
+        "padding": {
+          "number": [
+            5,
+            10,
+            10,
+            5
+          ],
+          "unit": "px"
+        },
+        "space": 0
+      }
+    },
+    "layout_1803": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_3661",
+          "bbox": {
+            "width": "245px",
+            "height": "31px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        },
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_3659",
+          "bbox": {
+            "width": "245px",
+            "height": "82px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        }
+      },
+      "type": "COLUMN",
+      "label": "Default",
+      "order": [
+        "0",
+        "1"
+      ],
+      "setting": {
+        "space": 0
+      }
+    },
+    "layout_1804": {
+      "content": {
+        "1": {
+          "type": "WIDGET",
+          "widgetId": "widget_3658",
+          "bbox": {
+            "width": "256px",
+            "height": "31px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        },
+        "2": {
+          "type": "WIDGET",
+          "widgetId": "widget_3665",
+          "bbox": {
+            "width": "256px",
+            "height": "190px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "STRETCH"
+            }
+          }
+        }
+      },
+      "type": "COLUMN",
+      "label": "Default",
+      "order": [
+        "1",
+        "2"
+      ],
+      "setting": {
+        "space": 0
+      }
+    },
+    "layout_1805": {
+      "content": {
+        "0": {
+          "type": "WIDGET",
+          "widgetId": "widget_3664",
+          "bbox": {
+            "width": "245px",
+            "height": "190px"
+          },
+          "setting": {
+            "autoProps": {
+              "height": "AUTO"
+            }
+          }
+        }
+      },
+      "type": "COLUMN",
+      "label": "Default",
+      "order": [
+        "0"
+      ]
     }
   },
   "exbVersion": "1.17.0",
   "mainSizeMode": "LARGE",
   "theme": "themes/ugdh_theme/",
   "forBuilderAttributes": {
-    "lockLayout": true,
+    "lockLayout": false,
     "viewPortSize": {
       "LARGE": {
         "width": 1920,
@@ -52483,8 +52804,8 @@
         "height": 962
       },
       "SMALL": {
-        "width": 414,
-        "height": 736
+        "width": 360,
+        "height": 640
       }
     }
   },
@@ -79973,7 +80294,7 @@
           "textExpression": null,
           "linkParam": {
             "linkType": "DIALOG",
-            "value": "dialog_8"
+            "value": "dialog_14"
           }
         },
         "styleConfig": {
@@ -81018,7 +81339,7 @@
           "textExpression": null,
           "linkParam": {
             "linkType": "DIALOG",
-            "value": "dialog_8"
+            "value": "dialog_14"
           }
         },
         "styleConfig": {
@@ -98870,7 +99191,7 @@
             ],
             "unit": "px"
           },
-          "justifyContent": "flex-start",
+          "justifyContent": "center",
           "alignItems": "stretch"
         }
       },
@@ -127625,7 +127946,7 @@
           "textExpression": null,
           "linkParam": {
             "linkType": "DIALOG",
-            "value": "dialog_8"
+            "value": "dialog_14"
           }
         },
         "styleConfig": {
@@ -148102,6 +148423,253 @@
         "widget_3627_output"
       ],
       "enableDataAction": false
+    },
+    "widget_3656": {
+      "uri": "widgets/common/button/",
+      "version": "1.17.0",
+      "label": "Button 257",
+      "config": {
+        "functionConfig": {
+          "text": "",
+          "textExpression": null,
+          "icon": {
+            "data": {
+              "svg": "<svg viewBox=\"0 0 14 14\" xmlns=\"http://www.w3.org/2000/svg\"><g fill-rule=\"nonzero\" fill=\"none\"><path d=\"M7.745 7l4.1 4.1a.527.527 0 01-.745.746L7 7.746l-4.1 4.1a.527.527 0 01-.746-.746l4.1-4.1-4.1-4.1a.527.527 0 01.746-.746l4.1 4.1 4.1-4.1a.527.527 0 01.746.746L7.746 7z\" fill=\"#000\"></path><path d=\"M1 1h12v12H1z\"></path></g></svg>",
+              "properties": {
+                "filename": ""
+              }
+            },
+            "position": "LEFT"
+          },
+          "customIcons": [
+            {
+              "svg": "<svg viewBox=\"0 0 14 14\" xmlns=\"http://www.w3.org/2000/svg\"><g fill-rule=\"nonzero\" fill=\"none\"><path d=\"M7.745 7l4.1 4.1a.527.527 0 01-.745.746L7 7.746l-4.1 4.1a.527.527 0 01-.746-.746l4.1-4.1-4.1-4.1a.527.527 0 01.746-.746l4.1 4.1 4.1-4.1a.527.527 0 01.746.746L7.746 7z\" fill=\"#000\"></path><path d=\"M1 1h12v12H1z\"></path></g></svg>",
+              "properties": {
+                "filename": ""
+              }
+            }
+          ],
+          "linkParam": {
+            "linkType": "PAGE",
+            "value": "current_page",
+            "openType": "_self"
+          }
+        },
+        "styleConfig": {
+          "useCustom": false,
+          "customStyle": {
+            "regular": {
+              "iconProps": {
+                "color": "#181818",
+                "size": 14
+              }
+            },
+            "hover": {
+              "iconProps": {
+                "color": "#076fe5",
+                "size": 14
+              }
+            }
+          },
+          "themeStyle": {
+            "quickStyleType": "tertiary"
+          }
+        }
+      },
+      "id": "widget_3656"
+    },
+    "widget_3657": {
+      "uri": "widgets/layout/column/",
+      "version": "1.17.0",
+      "label": "Column 596",
+      "config": {
+        "space": {
+          "distance": 0,
+          "unit": "px"
+        },
+        "style": {
+          "padding": {
+            "number": [
+              20,
+              15,
+              20,
+              15
+            ],
+            "unit": "px"
+          },
+          "justifyContent": "flex-start",
+          "alignItems": "stretch"
+        }
+      },
+      "id": "widget_3657",
+      "layouts": {
+        "DEFAULT": {
+          "LARGE": "layout_1800"
+        }
+      }
+    },
+    "widget_3658": {
+      "uri": "widgets/common/text/",
+      "version": "1.17.0",
+      "label": "Text 683",
+      "config": {
+        "text": "<p><strong style=\"font-size: 16px;\">About the Map</strong></p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "verticalAlign": "start",
+          "wrap": true
+        }
+      },
+      "id": "widget_3658"
+    },
+    "widget_3659": {
+      "uri": "widgets/common/text/",
+      "version": "1.17.0",
+      "label": "Text 684",
+      "config": {
+        "text": "<p><span style=\"font-size: 13px;\">Select wells from the map or list to view water elevation trends over time, preview measurement tables, and download data.</span></p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "verticalAlign": "start",
+          "wrap": true
+        }
+      },
+      "id": "widget_3659"
+    },
+    "widget_3660": {
+      "uri": "widgets/layout/column/",
+      "version": "1.17.0",
+      "label": "Column 596",
+      "config": {
+        "space": {
+          "distance": 0,
+          "unit": "px"
+        },
+        "style": {
+          "padding": {
+            "number": [
+              5,
+              10,
+              10,
+              5
+            ],
+            "unit": "px"
+          },
+          "justifyContent": "flex-start",
+          "alignItems": "stretch"
+        }
+      },
+      "id": "widget_3660",
+      "layouts": {
+        "DEFAULT": {
+          "SMALL": "layout_1802"
+        }
+      }
+    },
+    "widget_3661": {
+      "uri": "widgets/common/text/",
+      "version": "1.17.0",
+      "label": "Text 685",
+      "config": {
+        "text": "<p><strong style=\"font-size: 16px;\">How to use this map</strong></p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "verticalAlign": "start",
+          "wrap": true
+        }
+      },
+      "id": "widget_3661"
+    },
+    "widget_3662": {
+      "uri": "widgets/layout/column/",
+      "version": "1.17.0",
+      "label": "Column 597",
+      "config": {
+        "space": {
+          "distance": 0,
+          "unit": "px"
+        },
+        "style": {
+          "padding": {
+            "space": [
+              10
+            ],
+            "unit": "px"
+          },
+          "justifyContent": "flex-start",
+          "alignItems": "stretch"
+        }
+      },
+      "id": "widget_3662",
+      "layouts": {
+        "DEFAULT": {
+          "SMALL": "layout_1803"
+        }
+      }
+    },
+    "widget_3663": {
+      "uri": "widgets/layout/column/",
+      "version": "1.17.0",
+      "label": "Column 598",
+      "config": {
+        "space": {
+          "distance": 0,
+          "unit": "px"
+        },
+        "style": {
+          "padding": {
+            "space": [
+              10
+            ],
+            "unit": "px"
+          },
+          "justifyContent": "flex-start",
+          "alignItems": "stretch"
+        }
+      },
+      "id": "widget_3663",
+      "layouts": {
+        "DEFAULT": {
+          "SMALL": "layout_1804"
+        }
+      }
+    },
+    "widget_3664": {
+      "uri": "widgets/common/text/",
+      "version": "1.17.0",
+      "label": "Text 686",
+      "config": {
+        "text": "<p>The U.S. Geological Survey (USGS) National Water Information System (<a href=\"https://apps.usgs.gov/nwismapper/\" target=\"_blank\" data-uniqueid=\"0dbfb2c5_2f19_1c7f_15bc_9eaf18b53093\" data-dsid=\"\" data-link=\"%7B%22linkType%22%3A%22WEB_ADDRESS%22%2C%22openType%22%3A%22_blank%22%2C%22value%22%3A%22https%3A%2F%2Fapps.usgs.gov%2Fnwismapper%2F%22%2C%22expression%22%3Anull%7D\">NWIS</a>) and the Utah Geological Survey (UGS) provide valuable groundwater-level data that helps to identify trends in human use, climate, and changes to groundwater storage, aiding water resource management decisions. This data hub combines USGS groundwater-level measurements exported from NWIS and UGS manual measurements from monitoring wells across Utah. Groundwater-level trends are calculated using spring season data, as groundwater levels typically peak before being affected by irrigation pumping. Ten-, fifteen-, and thirty-year groundwater-level trends were analyzed using the Mann Kendall test and Sen’s slope estimator. The Mann Kendall test, which measures the monotony of a slope over time, was run on each unique site in the three datasets, with results ranging from -1 to 1 to indicate decreasing or increasing trends. Sen’s slope estimator, a method that estimates the overall slope of a time series, was then run on all sites. This slope corresponds to the median of all the slopes calculated between each pair of points in the series.</p>",
+        "placeholder": "Double click to edit text",
+        "style": {
+          "wrap": true
+        }
+      },
+      "id": "widget_3664"
+    },
+    "widget_3665": {
+      "uri": "widgets/layout/column/",
+      "version": "1.17.0",
+      "label": "Column 599",
+      "config": {
+        "space": 10,
+        "style": {
+          "padding": {
+            "space": [
+              10
+            ],
+            "unit": "px"
+          },
+          "justifyContent": "flex-start",
+          "alignItems": "stretch"
+        }
+      },
+      "id": "widget_3665",
+      "layouts": {
+        "DEFAULT": {
+          "SMALL": "layout_1805"
+        }
+      }
     }
   },
   "widgetsManifest": {},
@@ -149280,8 +149848,8 @@
       "sizeMode": {
         "LARGE": {
           "position": null,
-          "width": "247px",
-          "height": "201px"
+          "width": "250.00px",
+          "height": "205.00px"
         }
       },
       "dialogBackground": {
@@ -149415,7 +149983,7 @@
         "LARGE": {
           "position": null,
           "width": "348px",
-          "height": "247px"
+          "height": "256px"
         }
       },
       "dialogBackground": {
@@ -149522,6 +150090,52 @@
       },
       "label": "Legend: 15-year",
       "closeWhenClickOverlay": false
+    },
+    "dialog_14": {
+      "id": "dialog_14",
+      "mode": "FIXED",
+      "blockPage": true,
+      "sizeMode": {
+        "LARGE": {
+          "position": null,
+          "width": "247px",
+          "height": "201px"
+        },
+        "SMALL": {
+          "position": "MIDDLE_CENTER",
+          "width": "80.0%",
+          "height": "326px",
+          "offsetX": 0,
+          "offsetY": 0,
+          "widthMode": "CUSTOM",
+          "heightMode": "CUSTOM"
+        }
+      },
+      "dialogBackground": {
+        "color": "var(--light)",
+        "fillType": "fill",
+        "image": {
+          "url": ""
+        }
+      },
+      "overlayColor": "var(--ref-palette-neutral-1200)",
+      "layout": {
+        "LARGE": "layout_1799",
+        "SMALL": "layout_1801"
+      },
+      "index": 5,
+      "isSplash": false,
+      "border": {
+        "color": "var(--light-300)",
+        "type": "solid",
+        "width": "2px"
+      },
+      "label": "Mobile - About: Water Level Trends ",
+      "closeWhenClickOverlay": true,
+      "interactionType": null,
+      "interactionStyles": null,
+      "confirmBeforeClose": true,
+      "alwaysShowConfirmation": false
     }
   },
   "dataSources": {
@@ -175932,7 +176546,7 @@
     "backgroundColor": "var(--success)",
     "sticky": true
   },
-  "timestamp": 1771340679558,
+  "timestamp": 1771368172899,
   "controllerPanels": {},
   "footer": {
     "layout": {
