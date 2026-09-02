@@ -46,7 +46,6 @@
       "filename": "1722450589552.png",
       "originalName": "favicon.png",
       "path": "${appResourceUrl}/images/icon_picker_in_setting/1722450589552.png",
-      "isUploaded": true,
       "inlineSvg": false
     }
   },
@@ -66,6 +65,16 @@
       "filename": "1745416962020.png",
       "originalName": "icon_download_white.png",
       "path": "${appResourceUrl}/images/icon_picker_in_setting/1745416962020.png",
+      "isUploaded": true,
+      "inlineSvg": false
+    }
+  },
+  "1786389006006.png": {
+    "svg": "${appResourceUrl}/images/icon_picker_in_setting/1786389006006.png",
+    "properties": {
+      "filename": "1786389006006.png",
+      "originalName": "UGS_Favicon_Logo_Template-BLU.png",
+      "path": "${appResourceUrl}/images/icon_picker_in_setting/1786389006006.png",
       "isUploaded": true,
       "inlineSvg": false
     }
