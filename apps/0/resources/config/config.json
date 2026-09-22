@@ -217,19 +217,6 @@
       "label": "Montezuma Creek",
       "header": true,
       "footer": true
-    },
-    "page_24": {
-      "id": "page_24",
-      "mode": "FIT_WINDOW",
-      "type": "NORMAL",
-      "layout": {
-        "LARGE": "layout_2424"
-      },
-      "isDefault": false,
-      "isVisible": true,
-      "label": "Page",
-      "header": false,
-      "footer": false
     }
   },
   "layouts": {
@@ -70357,60 +70344,6 @@
         "0"
       ]
     },
-    "layout_2424": {
-      "type": "FIXED",
-      "content": {
-        "0": {
-          "type": "WIDGET",
-          "widgetId": "widget_4901",
-          "bbox": {
-            "left": "63.4%",
-            "right": "3.9%",
-            "top": "0.0%",
-            "bottom": "19.1%",
-            "width": "32.7%",
-            "height": "80.9%"
-          },
-          "setting": {
-            "autoProps": {
-              "right": false,
-              "left": true,
-              "top": false,
-              "bottom": true
-            }
-          }
-        },
-        "1": {
-          "type": "WIDGET",
-          "widgetId": "widget_4902",
-          "bbox": {
-            "left": "5.3%",
-            "right": "41.2%",
-            "top": "22.3%",
-            "bottom": "25.7%",
-            "width": "53.5%",
-            "height": "52.0%"
-          },
-          "setting": {
-            "autoProps": {
-              "left": false,
-              "right": true,
-              "top": false,
-              "bottom": true
-            }
-          }
-        }
-      },
-      "order": [
-        "0",
-        "1"
-      ]
-    },
-    "layout_2425": {
-      "content": {},
-      "type": "FIXED",
-      "label": "Map FixedLayout"
-    },
     "layout_2426": {
       "content": {
         "0": {
@@ -72789,81 +72722,6 @@
             }
           },
           "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       },
       "useMapWidgetIds": [
@@ -74086,74 +73944,7 @@
           "dataSourceId": "dataSource_44",
           "mainDataSourceId": "dataSource_44"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_104": {
       "uri": "widgets/common/controller/",
@@ -82461,84 +82252,6 @@
         },
         "setFilter": {
           "enabled": true
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       },
       "enableDataAction": true
@@ -82605,74 +82318,7 @@
           "mainDataSourceId": "dataSource_45"
         }
       ],
-      "enableDataAction": true,
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      "enableDataAction": true
     },
     "widget_510": {
       "uri": "widgets/common/controller/",
@@ -83793,84 +83439,6 @@
         },
         "relatedData": {
           "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       },
       "useDataSources": [
@@ -83966,74 +83534,7 @@
           "dataSourceId": "dataSource_44",
           "mainDataSourceId": "dataSource_44"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_533": {
       "uri": "widgets/common/controller/",
@@ -94760,84 +94261,6 @@
         },
         "setFilter": {
           "enabled": true
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       },
       "enableDataAction": true
@@ -95539,74 +94962,7 @@
           "mainDataSourceId": "dataSource_45"
         }
       ],
-      "enableDataAction": true,
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      "enableDataAction": true
     },
     "widget_989": {
       "uri": "widgets/arcgis/legend/",
@@ -95686,74 +95042,7 @@
           "dataSourceId": "dataSource_44",
           "mainDataSourceId": "dataSource_44"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_996": {
       "uri": "widgets/common/controller/",
@@ -96259,84 +95548,6 @@
           "enabled": true
         },
         "relatedData": {
-          "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
           "enabled": false
         }
       },
@@ -142324,84 +141535,6 @@
         },
         "relatedData": {
           "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
         }
       },
       "useDataSources": [
@@ -143250,74 +142383,7 @@
           "dataSourceId": "dataSource_46",
           "mainDataSourceId": "dataSource_46"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_2183": {
       "uri": "widgets/common/controller/",
@@ -144073,72 +143139,6 @@
       },
       "outputDataSources": [],
       "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
         "dataStatistics": {
           "enabled": false
         },
@@ -144147,21 +143147,6 @@
         },
         "setFilter": {
           "enabled": true
-        },
-        "addToTable": {
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       }
     },
@@ -145042,84 +144027,6 @@
         },
         "relatedData": {
           "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       },
       "useDataSources": [
@@ -145316,74 +144223,7 @@
           "dataSourceId": "dataSource_46",
           "mainDataSourceId": "dataSource_46"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_2204": {
       "uri": "widgets/common/controller/",
@@ -147018,84 +145858,6 @@
           "enabled": true
         },
         "relatedData": {
-          "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
           "enabled": false
         }
       },
@@ -159695,84 +158457,6 @@
         },
         "setFilter": {
           "enabled": true
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          },
-          "enabled": false
-        },
-        "panTo": {
-          "enabled": false
-        },
-        "showPopup": {
-          "enabled": false
-        },
-        "viewInTable": {
-          "enabled": false
-        },
-        "zoomToFeature": {
-          "enabled": false
         }
       },
       "useDataSources": [
@@ -171950,9 +170634,6 @@
         "widget_3856"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -174450,9 +173131,6 @@
         "widget_3856"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -178193,74 +176871,7 @@
           "dataSourceId": "dataSource_43",
           "mainDataSourceId": "dataSource_43"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_4293": {
       "uri": "widgets/common/controller/",
@@ -179183,9 +177794,6 @@
         "widget_4292"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -179194,71 +177802,6 @@
         },
         "dataStatistics": {
           "enabled": false
-        },
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
         }
       },
       "useDataSources": [
@@ -179683,74 +178226,7 @@
           "dataSourceId": "dataSource_43",
           "mainDataSourceId": "dataSource_43"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_4318": {
       "uri": "widgets/common/controller/",
@@ -180575,9 +179051,6 @@
         "widget_4292"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -185931,9 +184404,6 @@
         "widget_4425"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -187794,9 +186264,6 @@
         "widget_4425"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -189125,74 +187592,7 @@
           "dataSourceId": "dataSource_43",
           "mainDataSourceId": "dataSource_43"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_4510": {
       "uri": "widgets/common/controller/",
@@ -193187,9 +191587,6 @@
         "widget_4557"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -195050,9 +193447,6 @@
         "widget_4557"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -198849,74 +197243,7 @@
           "dataSourceId": "dataSource_43",
           "mainDataSourceId": "dataSource_43"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_4690": {
       "uri": "widgets/common/controller/",
@@ -200447,9 +198774,6 @@
         "widget_4689"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -200882,74 +199206,7 @@
           "dataSourceId": "dataSource_43",
           "mainDataSourceId": "dataSource_43"
         }
-      ],
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      }
+      ]
     },
     "widget_4715": {
       "uri": "widgets/common/controller/",
@@ -202381,9 +200638,6 @@
         "widget_4689"
       ],
       "dataActions": {
-        "viewInTable": {
-          "enabled": true
-        },
         "setFilter": {
           "enabled": false
         },
@@ -205693,73 +203947,6 @@
           "LARGE": "layout_2422"
         }
       },
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      },
       "useDataSources": [
         {
           "dataSourceId": "dataSource_47",
@@ -206117,624 +204304,6 @@
           "LARGE": "layout_2423"
         }
       }
-    },
-    "widget_4901": {
-      "uri": "widgets/arcgis/arcgis-map/",
-      "version": "1.17.0",
-      "label": "Map 68",
-      "config": {
-        "toolConfig": {
-          "canZoom": true,
-          "canHome": true,
-          "canSearch": true,
-          "canNavigation": true
-        },
-        "isUseCustomMapState": false,
-        "initialMapDataSourceID": "dataSource_48",
-        "initialMapState": null,
-        "scaleRange": null
-      },
-      "id": "widget_4901",
-      "layouts": {
-        "MapFixedLayout": {
-          "LARGE": "layout_2425"
-        }
-      },
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      },
-      "useDataSources": [
-        {
-          "dataSourceId": "dataSource_48",
-          "mainDataSourceId": "dataSource_48"
-        }
-      ]
-    },
-    "widget_4902": {
-      "uri": "widgets/common/table/",
-      "version": "1.17.0",
-      "label": "Table 52",
-      "config": {
-        "layersConfig": [
-          {
-            "id": "dataSource_48-1a0a6973323-layer-4-1",
-            "name": "trends_10y_2026 view",
-            "useDataSource": {
-              "dataSourceId": "dataSource_48-1a0a6973323-layer-4",
-              "mainDataSourceId": "dataSource_48-1a0a6973323-layer-4",
-              "rootDataSourceId": "dataSource_48",
-              "fields": [
-                "Well_ID",
-                "Latitude",
-                "Longitude",
-                "F10yr_Rate_of_Change__ft_yr_",
-                "F10yr_Total_Change__ft_",
-                "F10yr_Significance",
-                "Source",
-                "Site_Number",
-                "Well_Site_Link"
-              ]
-            },
-            "allFields": [
-              {
-                "jimuName": "Well_ID",
-                "name": "Well_ID",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Well ID",
-                "format": null
-              },
-              {
-                "jimuName": "Latitude",
-                "name": "Latitude",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Latitude",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                }
-              },
-              {
-                "jimuName": "Longitude",
-                "name": "Longitude",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Longitude",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                }
-              },
-              {
-                "jimuName": "F10yr_Rate_of_Change__ft_yr_",
-                "name": "F10yr_Rate_of_Change__ft_yr_",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "10yr Rate of Change (ft/yr)",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                }
-              },
-              {
-                "jimuName": "F10yr_Total_Change__ft_",
-                "name": "F10yr_Total_Change__ft_",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "10yr Total Change (ft)",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                }
-              },
-              {
-                "jimuName": "F10yr_Significance",
-                "name": "F10yr_Significance",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "10yr Significance",
-                "format": null
-              },
-              {
-                "jimuName": "Source",
-                "name": "Source",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Source",
-                "format": null
-              },
-              {
-                "jimuName": "Site_Number",
-                "name": "Site_Number",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Site Number",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                }
-              },
-              {
-                "jimuName": "Well_Site_Link",
-                "name": "Well_Site_Link",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Well Site Link",
-                "format": null
-              },
-              {
-                "jimuName": "FID",
-                "name": "FID",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeOID",
-                "alias": "FID",
-                "format": {
-                  "digitSeparator": false,
-                  "places": 0
-                }
-              }
-            ],
-            "tableFields": [
-              {
-                "jimuName": "Well_ID",
-                "name": "Well_ID",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Well ID",
-                "format": null,
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "Latitude",
-                "name": "Latitude",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Latitude",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                },
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "Longitude",
-                "name": "Longitude",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Longitude",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                },
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "F10yr_Rate_of_Change__ft_yr_",
-                "name": "F10yr_Rate_of_Change__ft_yr_",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "10yr Rate of Change (ft/yr)",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                },
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "F10yr_Total_Change__ft_",
-                "name": "F10yr_Total_Change__ft_",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "10yr Total Change (ft)",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                },
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "F10yr_Significance",
-                "name": "F10yr_Significance",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "10yr Significance",
-                "format": null,
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "Source",
-                "name": "Source",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Source",
-                "format": null,
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "Site_Number",
-                "name": "Site_Number",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Site Number",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                },
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              },
-              {
-                "jimuName": "Well_Site_Link",
-                "name": "Well_Site_Link",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Well Site Link",
-                "format": null,
-                "editAuthority": true,
-                "editable": true,
-                "visible": true
-              }
-            ],
-            "enableAttachments": false,
-            "enableEdit": false,
-            "allowCsv": false,
-            "enableSearch": false,
-            "searchFields": [],
-            "enableRefresh": true,
-            "enableSelect": true,
-            "enableDelete": false,
-            "selectMode": "SINGLE",
-            "showCount": true,
-            "headerFontSetting": {
-              "backgroundColor": "",
-              "fontSize": 14,
-              "bold": false,
-              "color": ""
-            },
-            "columnSetting": {
-              "responsiveType": "FIXED",
-              "columnWidth": 200
-            },
-            "layerHonorMode": "WEBMAP"
-          },
-          {
-            "id": "dataSource_48-198c99b34c3-layer-9-1",
-            "name": "elevations_10y_UGDH_VIEW",
-            "useDataSource": {
-              "dataSourceId": "dataSource_48-198c99b34c3-layer-9",
-              "mainDataSourceId": "dataSource_48-198c99b34c3-layer-9",
-              "rootDataSourceId": "dataSource_48",
-              "fields": [
-                "Well_ID",
-                "Reading_Date",
-                "Water_Elevation__ft_",
-                "Source"
-              ]
-            },
-            "allFields": [
-              {
-                "jimuName": "Well_ID",
-                "name": "Well_ID",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Well ID",
-                "format": null
-              },
-              {
-                "jimuName": "Reading_Date",
-                "name": "Reading_Date",
-                "type": "DATE",
-                "esriType": "esriFieldTypeDate",
-                "alias": "Reading Date",
-                "format": {
-                  "dateFormat": "shortDate",
-                  "digitSeparator": false
-                }
-              },
-              {
-                "jimuName": "Year",
-                "name": "Year",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeInteger",
-                "alias": "Year",
-                "format": {
-                  "digitSeparator": false,
-                  "places": 0
-                }
-              },
-              {
-                "jimuName": "Water_Elevation__ft_",
-                "name": "Water_Elevation__ft_",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Water Elevation (ft)",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                }
-              },
-              {
-                "jimuName": "Source",
-                "name": "Source",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Source",
-                "format": null
-              },
-              {
-                "jimuName": "FID",
-                "name": "FID",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeOID",
-                "alias": "FID",
-                "format": {
-                  "digitSeparator": false,
-                  "places": 0
-                }
-              }
-            ],
-            "tableFields": [
-              {
-                "jimuName": "Well_ID",
-                "name": "Well_ID",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Well ID",
-                "format": null,
-                "editAuthority": false,
-                "editable": false,
-                "visible": true
-              },
-              {
-                "jimuName": "Reading_Date",
-                "name": "Reading_Date",
-                "type": "DATE",
-                "esriType": "esriFieldTypeDate",
-                "alias": "Reading Date",
-                "format": {
-                  "dateFormat": "shortDate",
-                  "digitSeparator": false
-                },
-                "editAuthority": false,
-                "editable": false,
-                "visible": true
-              },
-              {
-                "jimuName": "Water_Elevation__ft_",
-                "name": "Water_Elevation__ft_",
-                "type": "NUMBER",
-                "esriType": "esriFieldTypeDouble",
-                "alias": "Water Elevation (ft)",
-                "format": {
-                  "digitSeparator": true,
-                  "places": 2
-                },
-                "editAuthority": false,
-                "editable": false,
-                "visible": true
-              },
-              {
-                "jimuName": "Source",
-                "name": "Source",
-                "type": "STRING",
-                "esriType": "esriFieldTypeString",
-                "alias": "Source",
-                "format": null,
-                "editAuthority": false,
-                "editable": false,
-                "visible": true
-              }
-            ],
-            "enableAttachments": false,
-            "enableEdit": false,
-            "allowCsv": false,
-            "enableSearch": false,
-            "searchFields": [],
-            "enableRefresh": true,
-            "enableSelect": true,
-            "enableDelete": false,
-            "selectMode": "SINGLE",
-            "showCount": true,
-            "headerFontSetting": {
-              "backgroundColor": "",
-              "fontSize": 14,
-              "bold": false,
-              "color": ""
-            },
-            "columnSetting": {
-              "responsiveType": "FIXED",
-              "columnWidth": 200
-            },
-            "layerHonorMode": "WEBMAP"
-          }
-        ],
-        "mapViewsConfig": {},
-        "tableMode": "LAYER",
-        "enableMapExtentFilter": false,
-        "defaultExtentFilterEnabled": false,
-        "enableAttachments": false,
-        "arrangeType": "TABS"
-      },
-      "id": "widget_4902",
-      "dataActions": {
-        "showOnMap": {
-          "config": {
-            "isUseCustomSymbol": true,
-            "isOperationalLayer": true,
-            "symbolOption": {
-              "pointSymbol": {
-                "type": "esriSMS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "size": 12,
-                "style": "esriSMSCircle",
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                }
-              },
-              "polylineSymbol": {
-                "type": "esriSLS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "width": 0.75,
-                "style": "esriSLSSolid"
-              },
-              "polygonSymbol": {
-                "type": "esriSFS",
-                "color": [
-                  255,
-                  255,
-                  0,
-                  150
-                ],
-                "outline": {
-                  "type": "esriSLS",
-                  "color": [
-                    255,
-                    255,
-                    0,
-                    150
-                  ],
-                  "width": 1,
-                  "style": "esriSLSSolid"
-                },
-                "style": "esriSFSSolid"
-              }
-            }
-          }
-        }
-      },
-      "useMapWidgetIds": [
-        "widget_4901"
-      ],
-      "useDataSources": [
-        {
-          "dataSourceId": "dataSource_48-1a0a6973323-layer-4",
-          "mainDataSourceId": "dataSource_48-1a0a6973323-layer-4",
-          "rootDataSourceId": "dataSource_48",
-          "fields": [
-            "Well_ID",
-            "Latitude",
-            "Longitude",
-            "F10yr_Rate_of_Change__ft_yr_",
-            "F10yr_Total_Change__ft_",
-            "F10yr_Significance",
-            "Source",
-            "Site_Number",
-            "Well_Site_Link"
-          ]
-        },
-        {
-          "dataSourceId": "dataSource_48-198c99b34c3-layer-9",
-          "mainDataSourceId": "dataSource_48-198c99b34c3-layer-9",
-          "rootDataSourceId": "dataSource_48",
-          "fields": [
-            "Well_ID",
-            "Reading_Date",
-            "Water_Elevation__ft_",
-            "Source"
-          ]
-        }
-      ]
     },
     "widget_4903": {
       "uri": "widgets/layout/column/",
@@ -242599,9 +240168,6 @@
     },
     {
       "page_14": []
-    },
-    {
-      "page_24": []
     }
   ],
   "customTheme": {},
@@ -242619,7 +240185,7 @@
     "backgroundColor": "var(--success)",
     "sticky": false
   },
-  "timestamp": 1790023719148,
+  "timestamp": 1790095425402,
   "controllerPanels": {},
   "footer": {
     "layout": {
